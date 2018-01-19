@@ -4,8 +4,8 @@
   "description": "Sick word mixer",
   "scripts": {
     "start": "parcel -p 2038 index.html",
-    "build": "npm run clearDist && parcel build index.html",
-    "clearDist": "rm -rf dist"
+    "build": "npm run clear && parcel build index.html",
+    "clear": "rm -rf dist && rm -rf .cache"
   },
   "repository": {
     "type": "git",
