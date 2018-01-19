@@ -1,0 +1,32 @@
+{
+  "name": "sicx",
+  "version": "0.0.1",
+  "description": "Sick word mixer",
+  "scripts": {
+    "start": "parcel -p 2038 index.html",
+    "build": "npm run clearDist && parcel build index.html",
+    "clearDist": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smutnyleszek/sicx.git"
+  },
+  "author": "Leszek Pietrzak",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/smutnyleszek/sicx/issues"
+  },
+  "homepage": "https://github.com/smutnyleszek/sicx#readme",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "parcel-bundler": "^1.4.1",
+    "postcss-cssnext": "^3.0.2",
+    "stylelint": "^8.4.0",
+    "stylelint-order": "^0.8.0",
+    "stylelint-selector-pattern": "0.0.2",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "vue": "^2.5.13"
+  }
+}
