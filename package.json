@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Sick word mixer",
   "scripts": {
-    "start": "parcel -p 2038 index.html",
-    "build": "npm run clear && parcel build index.html",
+    "start": "parcel -p 2038 src/index.html",
+    "build": "npm run clear && parcel build src/index.html",
     "clear": "rm -rf dist && rm -rf .cache"
   },
   "repository": {
@@ -19,12 +19,13 @@
   "homepage": "https://github.com/smutnyleszek/sicx#readme",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
+    "jest": "^22.1.4",
     "parcel-bundler": "^1.4.1",
+    "parcel-plugin-vue": "^1.5.0",
     "postcss-cssnext": "^3.0.2",
-    "stylelint": "^8.4.0",
-    "stylelint-order": "^0.8.0",
-    "stylelint-selector-pattern": "0.0.2",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "vue-jest": "^1.4.0",
+    "vue-test-utils": "^1.0.0-beta.11"
   },
   "dependencies": {
     "vue": "^2.5.13"

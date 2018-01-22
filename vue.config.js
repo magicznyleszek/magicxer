@@ -1,4 +1,4 @@
-var TypeScriptAsset = require('parcel-bundler/src/assets/TypeScriptAsset.js');
+var TypeScriptAsset = require("parcel-bundler/src/assets/TypeScriptAsset.js");
 
 module.exports = {
   // extractCSS: process.env.NODE_ENV === 'production',
@@ -6,7 +6,7 @@ module.exports = {
     ts: function(content, cb, compiler, filePath) {
       let ts = new TypeScriptAsset(filePath, {}, {});
       ts.contents = content;
-      ts.process().then((res) => {
+      ts.process().then(res => {
         cb(null, res.js);
       });
     }
