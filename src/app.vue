@@ -1,18 +1,31 @@
 <template>
   <div class="main">
     <h1>Hai! {{title}}</h1>
+    <test></test>
+    <humans></humans>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import Test from "./components/test.vue";
+import Humans from "./components/humans.vue";
 
 export default class App extends Vue {
-  title: string = "Bai";
+  data() {
+    return {
+      title: "Bai",
+    }
+  },
+  name: "app",
+  components: {
+    Test,
+    Humans
+  }
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .main {
   position: absolute;
   top: 50%;
