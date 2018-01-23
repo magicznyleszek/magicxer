@@ -1,13 +1,14 @@
 <template>
   <div class="main">
-    <h1>Hai! {{title}}</h1>
-    <humans></humans>
+    <h1>sicx</h1>
+
+    <source-words></source-words>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Humans from "./components/humans.vue";
+import sourceWords from "./components/sourceWords.vue";
 
 export default Vue.extend({
   data() {
@@ -17,7 +18,7 @@ export default Vue.extend({
   },
   name: "app",
   components: {
-    Humans
+    sourceWords
   }
 });
 </script>
