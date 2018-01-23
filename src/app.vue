@@ -11,18 +11,18 @@ import Vue from "vue";
 import Test from "./components/test.vue";
 import Humans from "./components/humans.vue";
 
-export default class App extends Vue {
+export default Vue.extend({
   data() {
     return {
-      title: "Bai",
-    }
+      title: "Bai"
+    };
   },
   name: "app",
   components: {
     Test,
     Humans
   }
-}
+});
 </script>
 
 <style lang="css" scoped>

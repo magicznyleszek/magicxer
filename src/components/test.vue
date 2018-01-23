@@ -10,7 +10,9 @@ import Vue from "vue";
 export default Vue.extend({
   name: "test",
   data() {
-    return 1;
+    return {
+      foo: 1
+    };
   }
 });
 </script>
