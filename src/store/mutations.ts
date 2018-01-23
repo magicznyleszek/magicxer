@@ -7,7 +7,6 @@ const buildMixes = (beginnings: string[], endings: string[]): string[] => {
       finalMixes = finalMixes.concat(mixer.mixWords(beginning, ending));
     }
   }
-  console.log("buildMixes", beginnings, endings, finalMixes);
   return finalMixes;
 };
 
