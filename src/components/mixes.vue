@@ -3,21 +3,23 @@
     <p>mixes:</p>
 
     <ul>
-      <li v-for="mix in mixes">{{ mix }}</li>
+      <li v-for="mix in orderedMixes">{{ mix }}</li>
     </ul>
 
-    <p v-if="mixes.length < 1">Provide words that share some letters or contain vovels :-)</p>
+    <p v-if="orderedMixes.length < 1">Provide words that share some letters or contain vovels :-)</p>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import orderBy from "lodash/orderby";
+import uniq from "lodash/uniq";
 export default Vue.extend({
   name: "mixes",
   computed: {
-    mixes {
+    orderedMixes {
       get() {
-        return this.$store.state.mixes;
+        return orderBy(uniq(this.$store.state.mixes));
       }
     }
   }

@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/smutnyleszek/sicx#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.95",
     "autoprefixer": "^7.2.5",
     "jest": "^22.1.4",
+    "lodash": "^4.17.4",
     "parcel-bundler": "^1.4.1",
     "parcel-plugin-vue": "^1.5.0",
     "postcss-cssnext": "^3.0.2",
