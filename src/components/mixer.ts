@@ -10,14 +10,28 @@ class Mixer {
       for (let ndIndex = 0; ndIndex < secondWord.length; ndIndex++) {
         const ndLetter = secondWord[ndIndex];
 
-        if (firstWord.indexOf(ndLetter) !== -1) {
+        // we're want to glue togeter parts with the same letter
+        // or if bothe are vovels
+        if (
+          stLetter === ndLetter ||
+          (this.isVovel(stLetter) && this.isVovel(ndLetter))
+        ) {
           const beginningPart = firstWord.slice(0, stIndex);
           const endingPart = secondWord.slice(ndIndex, secondWord.length);
-          finalMixes.push(beginningPart + endingPart);
+
+          // avoid two letter mixes and duplicates
+          const merged = beginningPart + endingPart;
+          if (merged.length > 2 && finalMixes.indexOf(merged) === -1) {
+            finalMixes.push(merged);
+          }
         }
       }
     }
     return finalMixes;
+  }
+
+  private isVovel(letter: string): boolean {
+    return Mixer.vovels.indexOf(letter) !== -1;
   }
 }
 
