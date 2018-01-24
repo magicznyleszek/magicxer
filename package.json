@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Sick word mixer",
   "scripts": {
-    "start": "parcel -p 2038 src/index.html",
+    "start": "npm run clear && parcel -p 2038 src/index.html",
     "build": "npm run clear && parcel build src/index.html",
     "clear": "rm -rf dist && rm -rf .cache"
   },
