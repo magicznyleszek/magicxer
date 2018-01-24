@@ -1,9 +1,12 @@
 <template>
   <div class="mixes">
     <p>mixes:</p>
+
     <ul>
       <li v-for="mix in mixes">{{ mix }}</li>
     </ul>
+
+    <p v-if="mixes.length < 1">Provide words that share some letters or contain vovels :-)</p>
   </div>
 </template>
 
