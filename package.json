@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/smutnyleszek/sicx#readme",
   "devDependencies": {
-    "@types/lodash": "^4.14.95",
+    "@types/lodash": "^4.14.97",
     "autoprefixer": "^7.2.5",
     "jest": "^22.1.4",
     "lodash": "^4.17.4",
