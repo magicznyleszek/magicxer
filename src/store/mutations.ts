@@ -1,4 +1,4 @@
-import { mixer } from "../components/mixer";
+import { mixer } from "../components/mixer/mixer";
 
 const buildMixes = (beginnings: string[], endings: string[]): string[] => {
   let finalMixes: string[] = [];

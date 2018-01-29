@@ -11,7 +11,7 @@ class Mixer {
         const ndLetter = secondWord[ndIndex];
 
         // we're want to glue togeter parts with the same letter
-        // or if bothe are vovels
+        // or if both are vovels
         if (
           stLetter === ndLetter ||
           (this.isVovel(stLetter) && this.isVovel(ndLetter))
