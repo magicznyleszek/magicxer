@@ -12506,7 +12506,7 @@ var Mixer = /** @class */function () {
   Mixer.prototype.isVovel = function (letter) {
     return Mixer.vovels.indexOf(letter) !== -1;
   };
-  Mixer.vovels = ["a", "e", "i", "o", "u"];
+  Mixer.vovels = ["a", "e", "i", "o", "u", "y"];
   return Mixer;
 }();
 var mixer = exports.mixer = new Mixer();

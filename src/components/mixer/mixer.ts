@@ -1,5 +1,5 @@
 class Mixer {
-  private static readonly vovels: string[] = ["a", "e", "i", "o", "u"];
+  private static readonly vovels: string[] = ["a", "e", "i", "o", "u", "y"];
 
   public mixWords(firstWord: string, secondWord: string): string[] {
     const finalMixes = [];
