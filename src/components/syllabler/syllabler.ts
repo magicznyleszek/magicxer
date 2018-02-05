@@ -4,8 +4,23 @@ class Syllabler {
   // "y" is sometimes vowel and sometimes consonant,
   // for simplicity I assume it's always consonant
   private static readonly vowels: string[] = ["a", "e", "i", "o", "u"];
-  private static readonly prefixes: string[] = ["pre", "re", "ab", "un", "in"];
+  private static readonly prefixes: string[] = [
+    "post",
+    "pre",
+    "re",
+    "ab",
+    "un",
+    "in"
+  ];
   private static readonly suffixes: string[] = ["ing", "less", "ness"];
+  private static readonly sameSoundConsonants: string[] = [
+    "th",
+    "sh",
+    "ph",
+    "th",
+    "ch",
+    "wh"
+  ];
 
   public split(word: string): string[] {
     const syllables = [];
