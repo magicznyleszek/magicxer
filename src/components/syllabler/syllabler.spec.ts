@@ -33,12 +33,7 @@ describe("syllabler", () => {
       expect(syllabler.split("preview")).toEqual(["pre", "view"]);
       expect(syllabler.split("redo")).toEqual(["re", "do"]);
       expect(syllabler.split("able")).toEqual(["ab", "le"]);
-      expect(syllabler.split("postproduction")).toEqual([
-        "post",
-        "pro",
-        "duc",
-        "tion"
-      ]);
+      expect(syllabler.split("poster")).toEqual(["post", "er"]);
     });
 
     it("should separate suffixes from root word", () => {
@@ -46,11 +41,7 @@ describe("syllabler", () => {
       expect(syllabler.split("outing")).toEqual(["out", "ing"]);
       expect(syllabler.split("endless")).toEqual(["end", "less"]);
       expect(syllabler.split("fullness")).toEqual(["full", "ness"]);
-      expect(syllabler.split("weightlessness")).toEqual([
-        "weight",
-        "less",
-        "ness"
-      ]);
+      expect(syllabler.split("weightless")).toEqual(["weight", "less"]);
     });
 
     it("should split 1st and 2nd consonant for multiple in row", () => {
@@ -65,6 +56,12 @@ describe("syllabler", () => {
       // ?
     });
 
+    // true syllables are somehow harder to do:
+    // Does the vowel have a long sound?  (Like the 'i' in line)
+    // Divide before the consonant.
+    // examples:  ba-by, re-sult, i-vy, fro-zen, & Cu-pid
+    // Does the vowel have a short sound?  (Like the 'i' in mill)
+    // Divide after the consonant.
     it("should divide before consonant if it is surrounded by vowels", () => {
       expect(syllabler.split("baby")).toEqual(["ba", "by"]);
       expect(syllabler.split("result")).toEqual(["re", "sult"]);
@@ -73,28 +70,28 @@ describe("syllabler", () => {
       expect(syllabler.split("cupid")).toEqual(["cu", "pid"]);
     });
 
-    it("xxx", () => {
-      // ?
+    it("should divide properly -ckle endings", () => {
+      expect(syllabler.split("tackle")).toEqual(["tack", "le"]);
+      expect(syllabler.split("freckle")).toEqual(["freck", "le"]);
+      expect(syllabler.split("tickle")).toEqual(["tick", "le"]);
+      expect(syllabler.split("buckle")).toEqual(["buck", "le"]);
     });
-    // 3. Is the consonant surrounded by vowels?
-    // Does the vowel have a long sound?  (Like the 'i' in line)
-    // Divide before the consonant.
-    // examples:  ba-by, re-sult, i-vy, fro-zen, & Cu-pid
-    // Does the vowel have a short sound?  (Like the 'i' in mill)
-    // Divide after the consonant.
-    // examples:  met-al, riv-er, mod-el, val-ue, & rav-age
 
-    // 4. Does the word end with 'ckle'?
-    // Divide right before the 'le.'
-    // examples:  tack-le, freck-le, tick-le, & buck-le
-
-    // 5. Does the word end with 'le' (not 'ckle')?
-    // Is the letter before the 'le' a consonant?
-    // Divide 1 letter before the 'le.'
-    // examples:  ap-ple, rum-ble, fa-ble, & ta-ble
-    // Is the letter before the 'le' a vowel?
-    // Do nothing.
-    // examples:  ale, scale, sale, file, & tile
+    it("should divide properly -le (but not -ckle) endings", () => {
+      // Is the letter before the 'le' a consonant?
+      // Divide 1 letter before the 'le.'
+      expect(syllabler.split("apple")).toEqual(["ap", "ple"]);
+      expect(syllabler.split("rumble")).toEqual(["rum", "ble"]);
+      expect(syllabler.split("fable")).toEqual(["fa", "ble"]);
+      expect(syllabler.split("table")).toEqual(["ta", "ble"]);
+      // Is the letter before the 'le' a vowel?
+      // Do nothing.
+      expect(syllabler.split("ale")).toEqual(["ale"]);
+      expect(syllabler.split("scale")).toEqual(["scale"]);
+      expect(syllabler.split("sale")).toEqual(["sale"]);
+      expect(syllabler.split("file")).toEqual(["file"]);
+      expect(syllabler.split("tile")).toEqual(["tile"]);
+    });
   });
 
   describe("vowel consonant checking methods", () => {

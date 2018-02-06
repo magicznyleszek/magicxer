@@ -5,25 +5,72 @@ class Syllabler {
   // for simplicity I assume it's always consonant
   private static readonly vowels: string[] = ["a", "e", "i", "o", "u"];
   private static readonly prefixes: string[] = [
+    "ab",
+    "de",
+    "dis",
+    "down",
+    "il",
+    "im",
+    "in",
+    "ir",
+    "mega",
+    "mid",
+    "mis",
+    "non",
+    "out",
+    "over",
     "post",
     "pre",
+    "pro",
     "re",
-    "ab",
+    "semi",
+    "sub",
+    "tele",
     "un",
-    "in"
+    "up"
   ];
-  private static readonly suffixes: string[] = ["ing", "less", "ness"];
+  private static readonly suffixes: string[] = [
+    "dom",
+    "ee",
+    "er",
+    "ful",
+    "hood",
+    "ing",
+    "ism",
+    "ist",
+    "less",
+    "ment",
+    "ness",
+    "ship",
+    "ty",
+    "ward",
+    "wards",
+    "wise"
+  ];
   private static readonly sameSoundConsonants: string[] = [
-    "th",
-    "sh",
-    "ph",
-    "th",
     "ch",
+    "ph",
+    "sh",
+    "th",
+    "th",
     "wh"
   ];
 
   public split(word: string): string[] {
-    const syllables = [];
+    let workWord = word;
+
+    const prefixes = this.splitByPrefixes(workWord);
+    // last element of splitByPrefixes is leftover word
+    workWord = prefixes.pop() || "";
+
+    const suffixes = this.splitBySuffixes(workWord);
+    // first element of splitBySuffixes is leftover word
+    workWord = suffixes.shift() || "";
+
+    const rootSyllables = [];
+    if (workWord.length > 0) {
+      rootSyllables.push(workWord);
+    }
 
     // 1. Separate prefixes and suffixes from root words.
     // examples:  pre-view, work-ing, re-do, end-less, & out-ing
@@ -61,7 +108,10 @@ class Syllabler {
     // *where V is a vowel and C is a consonant. E.g.,
     // pronunciation (5 pro-nun-ci-a-tion; CV-CVC-CV-V-CVC)
 
-    syllables.push(word);
+    let syllables: string[] = [];
+    syllables = syllables.concat(prefixes);
+    syllables = syllables.concat(rootSyllables);
+    syllables = syllables.concat(suffixes);
 
     return syllables;
   }
@@ -72,6 +122,41 @@ class Syllabler {
 
   public isConsonant(letter: string): boolean {
     return letter.length === 1 && !this.isVowel(letter);
+  }
+
+  private splitByPrefixes(word: string): string[] {
+    let workWord = word;
+    const stripped = [];
+
+    for (const prefix of Syllabler.prefixes) {
+      if (workWord.indexOf(prefix) === 0) {
+        workWord = workWord.slice(prefix.length);
+        stripped.push(prefix);
+      }
+    }
+
+    stripped.push(workWord);
+
+    return stripped;
+  }
+
+  private splitBySuffixes(word: string): string[] {
+    let workWord = word;
+    const stripped = [];
+
+    for (const suffix of Syllabler.suffixes) {
+      if (
+        workWord.indexOf(suffix) !== -1 &&
+        workWord.indexOf(suffix) === workWord.length - suffix.length
+      ) {
+        workWord = workWord.slice(0, workWord.length - suffix.length);
+        stripped.unshift(suffix);
+      }
+    }
+
+    stripped.unshift(workWord);
+
+    return stripped;
   }
 }
 
