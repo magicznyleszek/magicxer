@@ -56,23 +56,47 @@ class Syllabler {
   ];
 
   public split(word: string): string[] {
-    let workWord = word;
+    // we start with a single chunk
+    let chunks: string[] = [word];
 
-    const prefixes = this.splitByPrefixes(workWord);
-    // last element of splitByPrefixes is leftover word
-    workWord = prefixes.pop() || "";
+    // STEP 1. split suffixes and prefixes (which are always syllables)
+    // STEP 1a. prefixes
+    chunks = this.splitPrefix(word);
+    // STEP 1b. suffixes - we cut the last item from current syllables, and then
+    // merge the result back
+    const prefixesLeftover = chunks.pop() || "";
+    chunks = chunks.concat(this.splitSuffix(prefixesLeftover));
 
-    const suffixes = this.splitBySuffixes(workWord);
-    // first element of splitBySuffixes is leftover word
-    workWord = suffixes.shift() || "";
+    // STEP 2. apply multiple rules to all chunks
+    chunks.forEach((chunk: string, index: number) => {
+      // skip chunks that are prefixes or suffixes
+      if (
+        Syllabler.prefixes.indexOf(chunk) === -1 &&
+        Syllabler.suffixes.indexOf(chunk) === -1
+      ) {
+        // STEP 2A. split 1st and 2nd consonant for multiple in row
+        let consonantInRow = 0;
+        // we start at the end and go backwards (to insert characters and not
+        // break the loop)
+        for (let i = chunk.length - 1; i >= 0; i--) {
+          const letter = chunk[i];
+          if (this.isConsonant(letter)) {
+            consonantInRow++;
+          }
 
-    const rootSyllables = [];
-    if (workWord.length > 0) {
-      rootSyllables.push(workWord);
-    }
+          if (consonantInRow >= 2 && this.isVowel(letter)) {
+            const left = chunk.substring(0, i + 2);
+            const right = chunk.substring(i + 2);
+            chunks.splice(index, 1, left, right);
+          }
 
-    // 1. Separate prefixes and suffixes from root words.
-    // examples:  pre-view, work-ing, re-do, end-less, & out-ing
+          // reset counter, because vowel brakes in-row (obviously)
+          if (this.isVowel(letter)) {
+            consonantInRow = 0;
+          }
+        }
+      }
+    });
 
     // 2. Are two (or more) consonants next to each other?
     // Divide between the 1st and 2nd consonants.
@@ -107,12 +131,7 @@ class Syllabler {
     // *where V is a vowel and C is a consonant. E.g.,
     // pronunciation (5 pro-nun-ci-a-tion; CV-CVC-CV-V-CVC)
 
-    let syllables: string[] = [];
-    syllables = syllables.concat(prefixes);
-    syllables = syllables.concat(rootSyllables);
-    syllables = syllables.concat(suffixes);
-
-    return syllables;
+    return chunks;
   }
 
   public isVowel(letter: string): boolean {
@@ -123,7 +142,13 @@ class Syllabler {
     return letter.length === 1 && !this.isVowel(letter);
   }
 
-  private splitByPrefixes(word: string): string[] {
+  private insertCharsAt(source: string, index: number, chars: string): string {
+    const tempArray = source.split("");
+    tempArray.splice(index, 0, chars);
+    return tempArray.join("");
+  }
+
+  private splitPrefix(word: string): string[] {
     let workWord = word;
     const stripped = [];
 
@@ -139,16 +164,19 @@ class Syllabler {
     return stripped;
   }
 
-  private splitBySuffixes(word: string): string[] {
+  private splitSuffix(word: string): string[] {
     let workWord = word;
     const stripped = [];
 
     for (const suffix of Syllabler.suffixes) {
       if (
         workWord.indexOf(suffix) !== -1 &&
-        workWord.indexOf(suffix) === workWord.length - suffix.length
+        // check it is the end of string
+        workWord.indexOf(suffix) === workWord.length - suffix.length &&
+        // check if whole word is not suffix already
+        workWord !== suffix
       ) {
-        workWord = workWord.slice(0, workWord.length - suffix.length);
+        workWord = workWord.slice(0, workWord.indexOf(suffix));
         stripped.unshift(suffix);
       }
     }
