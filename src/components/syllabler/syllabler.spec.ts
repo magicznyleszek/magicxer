@@ -30,29 +30,29 @@ const examples = [
 describe("syllabler", () => {
   describe("split method", () => {
     it("should separate prefixes from root word", () => {
-      expect(syllabler.split("preview")).toEqual(["pre", "view"]);
-      expect(syllabler.split("redo")).toEqual(["re", "do"]);
       expect(syllabler.split("able")).toEqual(["ab", "le"]);
       expect(syllabler.split("poster")).toEqual(["post", "er"]);
+      expect(syllabler.split("preview")).toEqual(["pre", "view"]);
+      expect(syllabler.split("redo")).toEqual(["re", "do"]);
     });
 
     it("should separate suffixes from root word", () => {
-      expect(syllabler.split("working")).toEqual(["work", "ing"]);
-      expect(syllabler.split("outing")).toEqual(["out", "ing"]);
       expect(syllabler.split("endless")).toEqual(["end", "less"]);
       expect(syllabler.split("fullness")).toEqual(["full", "ness"]);
+      expect(syllabler.split("outing")).toEqual(["out", "ing"]);
       expect(syllabler.split("weightless")).toEqual(["weight", "less"]);
+      expect(syllabler.split("working")).toEqual(["work", "ing"]);
     });
 
     it("should split 1st and 2nd consonant for multiple in row", () => {
+      expect(syllabler.split("berry")).toEqual(["ber", "ry"]);
       expect(syllabler.split("buffet")).toEqual(["buf", "fet"]);
       expect(syllabler.split("dessert")).toEqual(["des", "sert"]);
       expect(syllabler.split("object")).toEqual(["ob", "ject"]);
-      expect(syllabler.split("berry")).toEqual(["ber", "ry"]);
       expect(syllabler.split("pilgrim")).toEqual(["pil", "grim"]);
     });
 
-    it("should never split 2 consonants that make single sound, unless same letter", () => {
+    it("should never split 2 consonants that make single sound", () => {
       // ?
     });
 
@@ -64,32 +64,32 @@ describe("syllabler", () => {
     // Divide after the consonant.
     it("should divide before consonant if it is surrounded by vowels", () => {
       expect(syllabler.split("baby")).toEqual(["ba", "by"]);
-      expect(syllabler.split("result")).toEqual(["re", "sult"]);
-      expect(syllabler.split("ivy")).toEqual(["i", "vy"]);
-      expect(syllabler.split("frozen")).toEqual(["fro", "zen"]);
       expect(syllabler.split("cupid")).toEqual(["cu", "pid"]);
+      expect(syllabler.split("frozen")).toEqual(["fro", "zen"]);
+      expect(syllabler.split("ivy")).toEqual(["i", "vy"]);
+      expect(syllabler.split("result")).toEqual(["re", "sult"]);
     });
 
     it("should divide properly -ckle endings", () => {
-      expect(syllabler.split("tackle")).toEqual(["tack", "le"]);
-      expect(syllabler.split("freckle")).toEqual(["freck", "le"]);
-      expect(syllabler.split("tickle")).toEqual(["tick", "le"]);
       expect(syllabler.split("buckle")).toEqual(["buck", "le"]);
+      expect(syllabler.split("freckle")).toEqual(["freck", "le"]);
+      expect(syllabler.split("tackle")).toEqual(["tack", "le"]);
+      expect(syllabler.split("tickle")).toEqual(["tick", "le"]);
     });
 
     it("should divide properly -le (but not -ckle) endings", () => {
       // Is the letter before the 'le' a consonant?
       // Divide 1 letter before the 'le.'
       expect(syllabler.split("apple")).toEqual(["ap", "ple"]);
-      expect(syllabler.split("rumble")).toEqual(["rum", "ble"]);
       expect(syllabler.split("fable")).toEqual(["fa", "ble"]);
+      expect(syllabler.split("rumble")).toEqual(["rum", "ble"]);
       expect(syllabler.split("table")).toEqual(["ta", "ble"]);
       // Is the letter before the 'le' a vowel?
       // Do nothing.
       expect(syllabler.split("ale")).toEqual(["ale"]);
-      expect(syllabler.split("scale")).toEqual(["scale"]);
-      expect(syllabler.split("sale")).toEqual(["sale"]);
       expect(syllabler.split("file")).toEqual(["file"]);
+      expect(syllabler.split("sale")).toEqual(["sale"]);
+      expect(syllabler.split("scale")).toEqual(["scale"]);
       expect(syllabler.split("tile")).toEqual(["tile"]);
     });
   });
