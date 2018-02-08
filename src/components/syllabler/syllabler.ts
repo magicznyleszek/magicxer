@@ -46,7 +46,7 @@ class Syllabler {
     "wards",
     "wise"
   ];
-  private static readonly sameSoundConsonants: string[] = [
+  private static readonly sameSoundConsonantPairs: string[] = [
     "ch",
     "ph",
     "sh",
@@ -68,40 +68,13 @@ class Syllabler {
     chunks = chunks.concat(this.splitSuffix(prefixesLeftover));
 
     // STEP 2. apply multiple rules to all chunks
-    chunks.forEach((chunk: string, index: number) => {
-      // skip chunks that are prefixes or suffixes
-      if (
-        Syllabler.prefixes.indexOf(chunk) === -1 &&
-        Syllabler.suffixes.indexOf(chunk) === -1
-      ) {
-        // STEP 2A. split 1st and 2nd consonant for multiple in row
-        let consonantInRow = 0;
-        // we start at the end and go backwards (to insert characters and not
-        // break the loop)
-        for (let i = chunk.length - 1; i >= 0; i--) {
-          const letter = chunk[i];
-          if (this.isConsonant(letter)) {
-            consonantInRow++;
-          }
-
-          if (consonantInRow >= 2 && this.isVowel(letter)) {
-            const left = chunk.substring(0, i + 2);
-            const right = chunk.substring(i + 2);
-            chunks.splice(index, 1, left, right);
-          }
-
-          // reset counter, because vowel brakes in-row (obviously)
-          if (this.isVowel(letter)) {
-            consonantInRow = 0;
-          }
-        }
-      }
-    });
+    chunks = this.splitByMultipleConsonants(chunks);
 
     // 2. Are two (or more) consonants next to each other?
     // Divide between the 1st and 2nd consonants.
     // examples:  buf-fet, des-sert, ob-ject, ber-ry, & pil-grim
-    // Never split 2 consonants that make only 1 sound when pronounced together and aren't the same letter (i.e., 'ff').
+    // Never split 2 consonants that make only 1 sound when pronounced
+    // together and aren't the same letter (i.e., 'ff').
     // examples:  th, sh, ph, th, ch, & wh
 
     // 3. Is the consonant surrounded by vowels?
@@ -142,10 +115,45 @@ class Syllabler {
     return letter.length === 1 && !this.isVowel(letter);
   }
 
-  private insertCharsAt(source: string, index: number, chars: string): string {
-    const tempArray = source.split("");
-    tempArray.splice(index, 0, chars);
-    return tempArray.join("");
+  private isPrefix(word: string): boolean {
+    return Syllabler.prefixes.indexOf(word) !== -1;
+  }
+
+  private isSuffix(word: string): boolean {
+    return Syllabler.suffixes.indexOf(word) !== -1;
+  }
+
+  // split 1st and 2nd consonant for multiple in row
+  private splitByMultipleConsonants(chunks: string[]): string[] {
+    chunks.forEach((chunk: string, index: number) => {
+      // skip chunks that are prefixes or suffixes
+      if (this.isPrefix(chunk) || this.isSuffix(chunk)) { return; }
+
+      let consonantInRow = 0;
+      // we start at the end and go backwards (to insert characters and not
+      // break the loop)
+      for (let i = chunk.length - 1; i >= 0; i--) {
+        const letter = chunk[i];
+        if (this.isConsonant(letter)) {
+          consonantInRow++;
+        }
+
+        if (consonantInRow >= 2 && this.isVowel(letter)) {
+          const left = chunk.substring(0, i + 2);
+          const right = chunk.substring(i + 2);
+          // don't allow single letter chunks here
+          if (left.length > 1 && right.length > 1) {
+            chunks.splice(index, 1, left, right);
+          }
+        }
+
+        // reset counter, because vowel brakes in-row (obviously)
+        if (this.isVowel(letter)) {
+          consonantInRow = 0;
+        }
+      }
+    });
+    return chunks;
   }
 
   private splitPrefix(word: string): string[] {
