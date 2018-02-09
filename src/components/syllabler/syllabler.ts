@@ -1,60 +1,8 @@
 // this is designed to work with English
 
-class Syllabler {
-  // "y" is sometimes vowel and sometimes consonant,
-  // for simplicity I assume it's always the latter
-  private static readonly vowels: string[] = ["a", "e", "i", "o", "u"];
-  private static readonly prefixes: string[] = [
-    "ab",
-    "dis",
-    "down",
-    "il",
-    "im",
-    "in",
-    "ir",
-    "mega",
-    "mid",
-    "mis",
-    "non",
-    "out",
-    "over",
-    "post",
-    "pre",
-    "pro",
-    "re",
-    "semi",
-    "sub",
-    "tele",
-    "un",
-    "up"
-  ];
-  private static readonly suffixes: string[] = [
-    "dom",
-    "ee",
-    "er",
-    "ful",
-    "hood",
-    "ing",
-    "ism",
-    "ist",
-    "less",
-    "ment",
-    "ness",
-    "ship",
-    "ty",
-    "ward",
-    "wards",
-    "wise"
-  ];
-  private static readonly sameSoundConsonantPairs: string[] = [
-    "ch",
-    "ph",
-    "sh",
-    "th",
-    "th",
-    "wh"
-  ];
+import { writing } from "./writing";
 
+class Syllabler {
   public split(word: string): string[] {
     // we start with a single chunk
     let chunks: string[] = [word];
@@ -107,48 +55,37 @@ class Syllabler {
     return chunks;
   }
 
-  public isVowel(letter: string): boolean {
-    return letter.length === 1 && Syllabler.vowels.indexOf(letter) !== -1;
-  }
-
-  public isConsonant(letter: string): boolean {
-    return letter.length === 1 && !this.isVowel(letter);
-  }
-
-  private isPrefix(word: string): boolean {
-    return Syllabler.prefixes.indexOf(word) !== -1;
-  }
-
-  private isSuffix(word: string): boolean {
-    return Syllabler.suffixes.indexOf(word) !== -1;
-  }
-
   // split 1st and 2nd consonant for multiple in row
   private splitByMultipleConsonants(chunks: string[]): string[] {
     chunks.forEach((chunk: string, index: number) => {
       // skip chunks that are prefixes or suffixes
-      if (this.isPrefix(chunk) || this.isSuffix(chunk)) { return; }
+      if (writing.isPrefix(chunk) || writing.isSuffix(chunk)) {
+        return;
+      }
 
       let consonantInRow = 0;
       // we start at the end and go backwards (to insert characters and not
       // break the loop)
       for (let i = chunk.length - 1; i >= 0; i--) {
         const letter = chunk[i];
-        if (this.isConsonant(letter)) {
+        if (writing.isConsonant(letter)) {
           consonantInRow++;
         }
 
-        if (consonantInRow >= 2 && this.isVowel(letter)) {
+        if (consonantInRow >= 2 && writing.isVowel(letter)) {
           const left = chunk.substring(0, i + 2);
           const right = chunk.substring(i + 2);
-          // don't allow single letter chunks here
-          if (left.length > 1 && right.length > 1) {
+          if (
+            writing.isValidSyllable(left) &&
+            writing.isValidSyllable(right) &&
+            writing.isSingleSoundPair(left[left.length - 1], right[0])
+          ) {
             chunks.splice(index, 1, left, right);
           }
         }
 
         // reset counter, because vowel brakes in-row (obviously)
-        if (this.isVowel(letter)) {
+        if (writing.isVowel(letter)) {
           consonantInRow = 0;
         }
       }
@@ -160,7 +97,7 @@ class Syllabler {
     let workWord = word;
     const stripped = [];
 
-    for (const prefix of Syllabler.prefixes) {
+    for (const prefix of writing.getPrefixes()) {
       if (workWord.indexOf(prefix) === 0) {
         workWord = workWord.slice(prefix.length);
         stripped.push(prefix);
@@ -176,7 +113,7 @@ class Syllabler {
     let workWord = word;
     const stripped = [];
 
-    for (const suffix of Syllabler.suffixes) {
+    for (const suffix of writing.getSuffixes()) {
       if (
         workWord.indexOf(suffix) !== -1 &&
         // check it is the end of string

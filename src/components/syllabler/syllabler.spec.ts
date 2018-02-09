@@ -52,8 +52,19 @@ describe("syllabler", () => {
       expect(syllabler.split("pilgrim")).toEqual(["pil", "grim"]);
     });
 
-    it("should never split 2 consonants that make single sound", () => {
-      // ?
+    it.only("should never split 2 consonants that make single sound", () => {
+      expect(syllabler.split("butcher")).toEqual(["butch", "er"]);
+      expect(syllabler.split("marshmallow")).toEqual(["marsh", "mal", "low"]);
+      expect(syllabler.split("sophisticated")).toEqual([
+        "so",
+        "phis",
+        "ti",
+        "cat",
+        "ed"
+      ]);
+      expect(syllabler.split("threshold")).toEqual(["tresh", "old"]);
+      expect(syllabler.split("whimsical")).toEqual(["whim", "si", "cal"]);
+      expect(syllabler.split("witchcraft")).toEqual(["witch", "craft"]);
     });
 
     // true syllables are somehow harder to do:
@@ -91,44 +102,6 @@ describe("syllabler", () => {
       expect(syllabler.split("sale")).toEqual(["sale"]);
       expect(syllabler.split("scale")).toEqual(["scale"]);
       expect(syllabler.split("tile")).toEqual(["tile"]);
-    });
-  });
-
-  describe("vowel consonant checking methods", () => {
-    it("should identify vowels", () => {
-      const vowels = ["a", "e", "i", "o", "u"];
-      for (const vowel of vowels) {
-        expect(syllabler.isVowel(vowel)).toBeTruthy();
-      }
-    });
-
-    it("should identify consonants", () => {
-      const consonants = [
-        "b",
-        "c",
-        "d",
-        "f",
-        "g",
-        "h",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z"
-      ];
-      for (const consonant of consonants) {
-        expect(syllabler.isConsonant(consonant)).toBeTruthy();
-      }
     });
   });
 });
