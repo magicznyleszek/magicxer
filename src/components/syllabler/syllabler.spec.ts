@@ -92,13 +92,6 @@ describe("syllabler", () => {
       expect(syllabler.split("fable")).toEqual(["fa", "ble"]);
       expect(syllabler.split("rumble")).toEqual(["rum", "ble"]);
       expect(syllabler.split("table")).toEqual(["ta", "ble"]);
-      // Is the letter before the 'le' a vowel?
-      // Do nothing.
-      expect(syllabler.split("ale")).toEqual(["ale"]);
-      expect(syllabler.split("file")).toEqual(["file"]);
-      expect(syllabler.split("sale")).toEqual(["sale"]);
-      expect(syllabler.split("scale")).toEqual(["scale"]);
-      expect(syllabler.split("tile")).toEqual(["tile"]);
     });
   });
 });

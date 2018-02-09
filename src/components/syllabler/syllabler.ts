@@ -8,37 +8,12 @@ class Syllabler {
     // we start with a single chunk
     let chunks: string[] = [word];
 
-    // STEP 1. split suffixes and prefixes (which are always syllables)
-    // STEP 1a. prefixes
+    // NOTE: order of these is probably curcial
     chunks = this.splitPrefix(word);
-    // STEP 1b. suffixes - we cut the last item from current syllables, and then
-    // merge the result back
-    const prefixesLeftover = chunks.pop() || "";
-    chunks = chunks.concat(this.splitSuffix(prefixesLeftover));
-
-    // STEP 2. apply multiple rules to all chunks
+    chunks = this.splitCkleLeSuffix(chunks);
+    chunks = this.splitGeneralSuffix(chunks);
     chunks = this.splitByMultipleConsonantsInRow(chunks);
     chunks = this.splitBySurroundedConsonants(chunks);
-
-    // 3. Is the consonant surrounded by vowels?
-    // Does the vowel have a long sound?  (Like the 'i' in line)
-    // Divide before the consonant.
-    // examples:  ba-by, re-sult, i-vy, fro-zen, & Cu-pid
-    // Does the vowel have a short sound?  (Like the 'i' in mill)
-    // Divide after the consonant.
-    // examples:  met-al, riv-er, mod-el, val-ue, & rav-age
-
-    // 4. Does the word end with 'ckle'?
-    // Divide right before the 'le.'
-    // examples:  tack-le, freck-le, tick-le, & buck-le
-
-    // 5. Does the word end with 'le' (not 'ckle')?
-    // Is the letter before the 'le' a consonant?
-    // Divide 1 letter before the 'le.'
-    // examples:  ap-ple, rum-ble, fa-ble, & ta-ble
-    // Is the letter before the 'le' a vowel?
-    // Do nothing.
-    // examples:  ale, scale, sale, file, & tile
 
     // ---
 
@@ -66,26 +41,50 @@ class Syllabler {
     return stripped;
   }
 
-  private splitSuffix(word: string): string[] {
-    let workWord = word;
-    const stripped = [];
-
-    for (const suffix of writing.getSuffixes()) {
-      if (
-        workWord.indexOf(suffix) !== -1 &&
-        // check it is the end of string
-        workWord.indexOf(suffix) === workWord.length - suffix.length &&
-        // check if whole word is not suffix already
-        workWord !== suffix
-      ) {
-        workWord = workWord.slice(0, workWord.indexOf(suffix));
-        stripped.unshift(suffix);
+  private splitGeneralSuffix(chunks: string[]): string[] {
+    const workWord = chunks[chunks.length - 1];
+    if (workWord) {
+      for (const suffix of writing.getSuffixes()) {
+        if (
+          workWord.indexOf(suffix) !== -1 &&
+          // check it is the end of string
+          workWord.indexOf(suffix) === workWord.length - suffix.length &&
+          // check if whole word is not suffix already
+          workWord !== suffix
+        ) {
+          chunks.pop();
+          chunks.push(workWord.slice(0, workWord.indexOf(suffix)));
+          chunks.push(workWord.slice(workWord.indexOf(suffix)));
+          break;
+        }
       }
     }
+    return chunks;
+  }
 
-    stripped.unshift(workWord);
+  private splitCkleLeSuffix(chunks: string[]): string[] {
+    const workWord = chunks[chunks.length - 1];
 
-    return stripped;
+    // we're only interested in words ending with -le
+    if (workWord && workWord.slice(workWord.length - "le".length) === "le") {
+      let lettersToCut = 0;
+      // for -ckle we cut "le"
+      if (workWord.slice(workWord.length - "ckle".length) === "ckle") {
+        lettersToCut = 2;
+      } else if (
+        workWord.length >= 3 &&
+        writing.isConsonant(workWord[workWord.length - 3])
+      ) {
+        lettersToCut = 3;
+      }
+
+      if (lettersToCut) {
+        chunks.pop();
+        chunks.push(workWord.slice(0, workWord.length - lettersToCut));
+        chunks.push(workWord.slice(workWord.length - lettersToCut));
+      }
+    }
+    return chunks;
   }
 
   // split 1st and 2nd consonant for multiple in row
