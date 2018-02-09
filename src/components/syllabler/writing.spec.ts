@@ -2,14 +2,24 @@ import { writing } from "./writing";
 
 describe("writing", () => {
   it("should identify vowels", () => {
-    const vowels = ["a", "e", "i", "o", "u"];
-    for (const vowel of vowels) {
+    for (const vowel of ["a", "e", "i", "o", "u"]) {
       expect(writing.isVowel(vowel)).toBeTruthy();
+      expect(writing.isConsonant(vowel)).toBeFalsy();
     }
   });
 
+  it("should identify words with vowels", () => {
+    expect(writing.hasVowels("church")).toBeTruthy();
+    expect(writing.hasVowels("sequoia")).toBeTruthy();
+    expect(writing.hasVowels("dry")).toBeFalsy();
+    expect(writing.hasVowels("syzygy")).toBeFalsy();
+    expect(writing.hasVowels("nth")).toBeFalsy();
+    expect(writing.hasVowels("tsktsks")).toBeFalsy();
+    expect(writing.hasVowels("pfft")).toBeFalsy();
+  });
+
   it("should identify consonants", () => {
-    const consonants = [
+    for (const consonant of [
       "b",
       "c",
       "d",
@@ -31,9 +41,16 @@ describe("writing", () => {
       "x",
       "y",
       "z"
-    ];
-    for (const consonant of consonants) {
+    ]) {
       expect(writing.isConsonant(consonant)).toBeTruthy();
+      expect(writing.isVowel(consonant)).toBeFalsy();
     }
+  });
+
+  it("should require syllables to have vowels and at least 2 letters", () => {
+    expect(writing.isValidSyllable("au")).toBeTruthy();
+    expect(writing.isValidSyllable("low")).toBeTruthy();
+    expect(writing.isValidSyllable("t")).toBeFalsy();
+    expect(writing.isValidSyllable("rsh")).toBeFalsy();
   });
 });

@@ -89,13 +89,12 @@ class Writing {
   }
 
   public hasVowels(word: string): boolean {
-    let hasVowels = false;
     for (const letter of word) {
       if (this.isVowel(letter)) {
-        hasVowels = true;
+        return true;
       }
     }
-    return hasVowels;
+    return false;
   }
 
   public isValidSyllable(word: string): boolean {
