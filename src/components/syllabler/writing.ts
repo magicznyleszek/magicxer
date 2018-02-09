@@ -52,9 +52,7 @@ class Writing {
     "ch",
     "ph",
     "sh",
-    "th",
-    "th",
-    "wh"
+    "th"
   ];
 
   public isVowel(letter: string): boolean {

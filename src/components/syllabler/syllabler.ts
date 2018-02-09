@@ -88,6 +88,8 @@ class Syllabler {
             splitIndex + lettersSinceSplit
           );
 
+          console.debug(left, right);
+
           // check if both parts are valid to be split
           if (
             writing.isValidSyllable(left) &&

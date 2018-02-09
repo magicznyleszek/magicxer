@@ -1,30 +1,32 @@
 import { syllabler } from "./syllabler";
 
 const examples = [
-  { in: "mountainous", out: ["moun", "tain", "ous"] },
-  { in: "villainous", out: ["vil", "lain", "ous"] },
-  { in: "betrayal", out: ["be", "tray", "al"] },
-  { in: "defrayal", out: ["de", "fray", "al"] },
-  { in: "portrayal", out: ["por", "tray", "al"] },
-  { in: "hearken", out: ["hear", "ken"] },
-  { in: "extremely", out: ["ex", "treme", "ly"] },
-  { in: "supremely", out: ["su", "preme", "ly"] },
-  { in: "toothaches", out: ["tooth", "aches"] },
-  { in: "bachelor", out: ["bach", "e", "lor"] },
-  { in: "echelon", out: ["ech", "e", "lon"] },
-  { in: "riffraff", out: ["riff", "raff"] },
   { in: "analogous", out: ["anal", "o", "gous"] },
-  { in: "homologous", out: ["ho", "mol", "o", "gous"] },
-  { in: "genuine", out: ["gen", "u", "ine"] },
+  { in: "antarctic", out: ["ant", "arc", "tic"] },
   { in: "anyplace", out: ["any", "place"] },
+  { in: "bachelor", out: ["bach", "e", "lor"] },
+  { in: "betrayal", out: ["be", "tray", "al"] },
   { in: "coalesce", out: ["co", "a", "lesce"] },
+  { in: "cornstarch", out: ["corn", "starch"] },
+  { in: "defrayal", out: ["de", "fray", "al"] },
+  { in: "despair", out: ["de", "spair"] },
+  { in: "echelon", out: ["ech", "e", "lon"] },
+  { in: "extremely", out: ["ex", "treme", "ly"] },
   { in: "forewarn", out: ["fore", "warn"] },
   { in: "foreword", out: ["fore", "word"] },
-  { in: "despair", out: ["de", "spair"] },
-  { in: "antarctic", out: ["ant", "arc", "tic"] },
-  { in: "cornstarch", out: ["corn", "starch"] },
+  { in: "genuine", out: ["gen", "u", "ine"] },
+  { in: "hearken", out: ["hear", "ken"] },
+  { in: "homologous", out: ["ho", "mol", "o", "gous"] },
   { in: "mastodon", out: ["mast", "odon"] },
-  { in: "squirmed", out: ["squirmed"] }
+  { in: "mountainous", out: ["moun", "tain", "ous"] },
+  { in: "portrayal", out: ["por", "tray", "al"] },
+  { in: "riffraff", out: ["riff", "raff"] },
+  { in: "sophisticated", out: ["so", "phis", "ti", "cat", "ed"] },
+  { in: "squirmed", out: ["squirmed"] },
+  { in: "supremely", out: ["su", "preme", "ly"] },
+  { in: "toothaches", out: ["tooth", "aches"] },
+  { in: "villainous", out: ["vil", "lain", "ous"] },
+  { in: "whimsical", out: ["whim", "si", "cal"] }
 ];
 
 describe("syllabler", () => {
@@ -63,16 +65,8 @@ describe("syllabler", () => {
 
     it("should never split 2 consonants that make single sound", () => {
       expect(syllabler.split("butcher")).toEqual(["butch", "er"]);
-      expect(syllabler.split("marshmallow")).toEqual(["marsh", "mal", "low"]);
-      expect(syllabler.split("sophisticated")).toEqual([
-        "so",
-        "phis",
-        "ti",
-        "cat",
-        "ed"
-      ]);
+      expect(syllabler.split("marshal")).toEqual(["mar", "shal"]);
       expect(syllabler.split("threshold")).toEqual(["tresh", "old"]);
-      expect(syllabler.split("whimsical")).toEqual(["whim", "si", "cal"]);
       expect(syllabler.split("witchcraft")).toEqual(["witch", "craft"]);
     });
 
