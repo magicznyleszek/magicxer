@@ -9,7 +9,7 @@ class Syllabler {
     let chunks: string[] = [word];
 
     // NOTE: order of these is probably curcial
-    chunks = this.splitPrefix(word);
+    chunks = this.splitPrefix(chunks);
     chunks = this.splitCkleLeSuffix(chunks);
     chunks = this.splitGeneralSuffix(chunks);
     chunks = this.splitByMultipleConsonantsInRow(chunks);
@@ -25,20 +25,19 @@ class Syllabler {
     return chunks;
   }
 
-  private splitPrefix(word: string): string[] {
-    let workWord = word;
-    const stripped = [];
-
+  private splitPrefix(chunks: string[]): string[] {
+    const workWord = chunks[0];
     for (const prefix of writing.getPrefixes()) {
       if (workWord.indexOf(prefix) === 0) {
-        workWord = workWord.slice(prefix.length);
-        stripped.push(prefix);
+        chunks.shift();
+        chunks.unshift(
+          workWord.slice(0, prefix.length),
+          workWord.slice(prefix.length)
+        );
+        break;
       }
     }
-
-    stripped.push(workWord);
-
-    return stripped;
+    return chunks;
   }
 
   private splitGeneralSuffix(chunks: string[]): string[] {
