@@ -85,7 +85,7 @@ class Writing {
     if (letterA.length !== 1 || letterB.length !== 1) {
       throw new Error("UGH! This function requires letters!");
     }
-    return Writing.singleSoundConsonantPairs.indexOf(letterA + letterB) === -1;
+    return Writing.singleSoundConsonantPairs.indexOf(letterA + letterB) !== -1;
   }
 
   public hasVowels(word: string): boolean {
@@ -98,7 +98,10 @@ class Writing {
   }
 
   public isValidSyllable(word: string): boolean {
-    return word.length > 1 && this.hasVowels(word);
+    // "y" is sometimes a vowel, and in this particular case we can accept that
+    return (
+      word.length > 1 && (this.hasVowels(word) || word.indexOf("y") !== -1)
+    );
   }
 }
 

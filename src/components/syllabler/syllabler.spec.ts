@@ -50,9 +50,18 @@ describe("syllabler", () => {
       expect(syllabler.split("dessert")).toEqual(["des", "sert"]);
       expect(syllabler.split("object")).toEqual(["ob", "ject"]);
       expect(syllabler.split("pilgrim")).toEqual(["pil", "grim"]);
+      expect(syllabler.split("shriek")).toEqual(["shriek"]);
+      expect(syllabler.split("squirrel")).toEqual(["squir", "rel"]);
     });
 
-    it.only("should never split 2 consonants that make single sound", () => {
+    it("should never split to invalid syllables", () => {
+      // "gst" has no vowels
+      expect(syllabler.split("angst")).toEqual(["angst"]);
+      // "ry" has an allowed "y"-vowel
+      expect(syllabler.split("berry")).toEqual(["ber", "ry"]);
+    });
+
+    it("should never split 2 consonants that make single sound", () => {
       expect(syllabler.split("butcher")).toEqual(["butch", "er"]);
       expect(syllabler.split("marshmallow")).toEqual(["marsh", "mal", "low"]);
       expect(syllabler.split("sophisticated")).toEqual([

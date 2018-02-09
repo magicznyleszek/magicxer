@@ -63,30 +63,45 @@ class Syllabler {
         return;
       }
 
-      let consonantInRow = 0;
-      // we start at the end and go backwards (to insert characters and not
-      // break the loop)
+      let consonantsInRow = 0;
+      let lettersSinceSplit = 0;
+      // we start at the end and go backwards (to split without breaking loop)
       for (let i = chunk.length - 1; i >= 0; i--) {
         const letter = chunk[i];
         if (writing.isConsonant(letter)) {
-          consonantInRow++;
+          consonantsInRow++;
         }
+        lettersSinceSplit++;
 
-        if (consonantInRow >= 2 && writing.isVowel(letter)) {
-          const left = chunk.substring(0, i + 2);
-          const right = chunk.substring(i + 2);
+        if (consonantsInRow >= 2 && (writing.isVowel(letter) || i === 0)) {
+          // we should split between 1st and 2nd consonant in whole group,
+          // but if current letter is a vowel, we need to move the split
+          let splitIndex = i + 1;
+          if (writing.isVowel(letter)) {
+            splitIndex += 1;
+          }
+
+          // split current chunk
+          const left = chunk.substring(0, splitIndex);
+          const right = chunk.substring(
+            splitIndex,
+            splitIndex + lettersSinceSplit
+          );
+
+          // check if both parts are valid to be split
           if (
             writing.isValidSyllable(left) &&
             writing.isValidSyllable(right) &&
-            writing.isSingleSoundPair(left[left.length - 1], right[0])
+            !writing.isSingleSoundPair(left[left.length - 1], right[0])
           ) {
             chunks.splice(index, 1, left, right);
+            lettersSinceSplit = 0;
           }
         }
 
-        // reset counter, because vowel brakes in-row (obviously)
+        // reset counter, because vowel brakes in-row-count (obviously)
         if (writing.isVowel(letter)) {
-          consonantInRow = 0;
+          consonantsInRow = 0;
         }
       }
     });
