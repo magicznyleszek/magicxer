@@ -15,3 +15,5 @@ This is a small webapp project that I created to check out some fancy new tech:
 * Prettier
 * 2 spaces indentation :-D
 * .editorconfig
+
+Note: The website is being built into `docs` directory, because Github Pages allows to serve only root or `docs`.

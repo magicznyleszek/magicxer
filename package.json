@@ -4,9 +4,9 @@
   "description": "Sick word mixer",
   "scripts": {
     "test": "jest",
-    "test-watch": "jest --watchAll",
-    "start": "npm run clear && parcel -p 2038 src/index.html",
-    "build": "npm run clear && parcel build src/index.html",
+    "test-watch": "jest --watchAll --coverage",
+    "start": "npm run clear && parcel -p 2038 src/index.html --out-dir docs",
+    "build": "npm run clear && parcel build src/index.html --out-dir docs",
     "clear": "rm -rf dist && rm -rf .cache"
   },
   "repository": {
@@ -21,15 +21,15 @@
   "homepage": "https://github.com/smutnyleszek/sicx#readme",
   "devDependencies": {
     "@types/jest": "^22.1.1",
-    "@types/lodash": "^4.14.97",
+    "@types/lodash": "^4.14.101",
     "autoprefixer": "^7.2.5",
-    "jest": "^22.1.4",
-    "lodash": "^4.17.4",
+    "jest": "^22.2.0",
+    "lodash": "^4.17.5",
     "parcel-bundler": "^1.4.1",
     "parcel-plugin-vue": "^1.5.0",
     "postcss-cssnext": "^3.1.0",
-    "ts-jest": "^22.0.2",
-    "typescript": "^2.6.2"
+    "ts-jest": "^22.0.3",
+    "typescript": "^2.7.1"
   },
   "dependencies": {
     "vue": "^2.5.13",
