@@ -65,9 +65,9 @@ describe("syllabler", () => {
 
     it("should never split 2 consonants that make single sound", () => {
       expect(syllabler.split("butcher")).toEqual(["butch", "er"]);
+      expect(syllabler.split("buchy")).toEqual(["buchy"]);
       expect(syllabler.split("marshal")).toEqual(["mar", "shal"]);
-      expect(syllabler.split("threshold")).toEqual(["tresh", "old"]);
-      expect(syllabler.split("witchcraft")).toEqual(["witch", "craft"]);
+      expect(syllabler.split("matchy")).toEqual(["mat", "chy"]);
     });
 
     // true syllables are somehow harder to do:

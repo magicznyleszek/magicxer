@@ -4,9 +4,9 @@
   "description": "Sick word mixer",
   "scripts": {
     "test": "jest",
-    "test-watch": "jest --watchAll",
-    "start": "npm run clear && parcel -p 2038 src/index.html",
-    "build": "npm run clear && parcel build src/index.html",
+    "test-watch": "jest --watchAll --coverage",
+    "start": "npm run clear && parcel -p 2038 src/index.html --out-dir docs",
+    "build": "npm run clear && parcel build src/index.html --out-dir docs",
     "clear": "rm -rf dist && rm -rf .cache"
   },
   "repository": {

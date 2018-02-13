@@ -15,13 +15,6 @@ class Syllabler {
     chunks = this.splitByMultipleConsonantsInRow(chunks);
     chunks = this.splitBySurroundedConsonants(chunks);
 
-    // ---
-
-    // There are some syllabification rules that could be used:
-    // V CV VC CVC CCV CCCV CVCC
-    // *where V is a vowel and C is a consonant. E.g.,
-    // pronunciation (5 pro-nun-ci-a-tion; CV-CVC-CV-V-CVC)
-
     return chunks;
   }
 

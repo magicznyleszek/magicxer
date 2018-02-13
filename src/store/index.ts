@@ -7,5 +7,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state,
-  mutations
+  mutations,
+  // we want strict only during development (performance heavy-ish)
+  strict: window.location.hostname === "localhost"
 });
