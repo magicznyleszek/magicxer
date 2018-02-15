@@ -1,8 +1,6 @@
 <template>
   <div class="mixes">
-    <p>mixes:</p>
-
-    <ul>
+    <ul class="list">
       <li v-for="mix in orderedMixes">{{ mix }}</li>
     </ul>
 
@@ -27,7 +25,12 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
+@import "../variables.css";
 .mixes {
-  color: skyblue;
+  color: var(--c-violet);
+  border: var(--s-global-border) solid currentColor;
+  border-radius: var(--s-global-br);
+  padding: var(--s-leading-half);
+  margin: var(--s-leading-half);
 }
 </style>

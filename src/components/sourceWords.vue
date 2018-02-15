@@ -1,8 +1,8 @@
 <template>
   <form class="sourceWords">
     <p>Write space-separated lists of words: </p>
-    <input type="text" v-model="beginnings" placeholder="beginnings">
-    <input type="text" v-model="endings" placeholder="endings">
+    <input class="beginnings" type="text" v-model="beginnings" placeholder="beginnings">
+    <input class="endings" type="text" v-model="endings" placeholder="endings">
   </form>
 </template>
 
@@ -32,12 +32,17 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
-.sourceWords {
-  color: tomato;
+@import "../variables.css";
+.beginnings {
+  color: var(--c-crimson);
 }
-.sourceWords input {
-  border: 2px solid currentColor;
-  color: currentColor;
-  padding: 5px;
+.endings {
+  color: var(--c-deep-sky-blue);
+}
+.beginnings, .endings {
+  border: var(--s-global-border) solid currentColor;
+  border-radius: var(--s-global-br);
+  padding: var(--s-leading-half);
+  margin: var(--s-leading-half);
 }
 </style>
