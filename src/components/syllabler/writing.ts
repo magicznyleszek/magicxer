@@ -50,9 +50,17 @@ class Writing {
   ];
   private static readonly singleSoundConsonantPairs: string[] = [
     "ch",
+    "cx",
+    "ck",
+    "gh",
+    "gz",
+    "ks",
+    "ng",
     "ph",
     "sh",
-    "th"
+    "th",
+    "ts",
+    "xs"
   ];
 
   public isVowel(letter: string): boolean {

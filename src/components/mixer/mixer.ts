@@ -6,6 +6,7 @@ class Mixer {
     let finalMixes: string[] = [];
     finalMixes = finalMixes.concat(this.mixBySyllables(stWord, ndWord));
     finalMixes = finalMixes.concat(this.mixBySimilarLetters(stWord, ndWord));
+    finalMixes = finalMixes.concat(this.mixByCoolPairs(stWord, ndWord));
     finalMixes = this.cleanup(stWord, ndWord, finalMixes);
     return finalMixes;
   }
@@ -51,16 +52,27 @@ class Mixer {
       const stLetter = stWord[stIndex];
       for (let ndIndex = 0; ndIndex < ndWord.length; ndIndex++) {
         const ndLetter = ndWord[ndIndex];
-
         if (
           stLetter === ndLetter ||
           (writing.isVowel(stLetter) && writing.isVowel(ndLetter))
         ) {
-          const beginningPart = stWord.slice(0, stIndex);
-          const endingPart = ndWord.slice(ndIndex, ndWord.length);
+          mixes.push(
+            stWord.slice(0, stIndex) + ndWord.slice(ndIndex, ndWord.length)
+          );
+        }
+      }
+    }
+    return mixes;
+  }
 
-          // avoid two letter mixes and duplicates
-          mixes.push(beginningPart + endingPart);
+  private mixByCoolPairs(stWord: string, ndWord: string): string[] {
+    const mixes = [];
+    for (let stIndex = 0; stIndex < stWord.length; stIndex++) {
+      const stLetter = stWord[stIndex];
+      for (let ndIndex = 0; ndIndex < ndWord.length; ndIndex++) {
+        const ndLetter = ndWord[ndIndex];
+        if (writing.isSingleSoundPair(stWord[stIndex], ndWord[ndIndex])) {
+          mixes.push(stWord.slice(0, stIndex + 1) + ndWord.slice(ndIndex));
         }
       }
     }
