@@ -58,7 +58,7 @@ a:active {
 /* selection */
 
 :focus {
-  outline: var(--c-root-focus) solid 0.125rem;
+  outline: var(--c-root-focus) solid var(--s-global-border);
   background-color: var(--c-root-focus);
   color: var(--c-white) !important;
 }
