@@ -6,7 +6,21 @@ class Mixer {
     let finalMixes: string[] = [];
     finalMixes = finalMixes.concat(this.mixBySyllables(stWord, ndWord));
     finalMixes = finalMixes.concat(this.mixBySimilarLetters(stWord, ndWord));
+    finalMixes = this.cleanup(stWord, ndWord, finalMixes);
     return finalMixes;
+  }
+
+  // after everything is done, cleanup bad things
+  private cleanup(stWord: string, ndWord: string, mixes: string[]): string[] {
+    const cleanMixes = [];
+    for (const mix of mixes) {
+      // two letters are bad
+      // just glueing whole words is bad
+      if (mix.length > 2 && mix.length !== (stWord + ndWord).length) {
+        cleanMixes.push(mix);
+      }
+    }
+    return cleanMixes;
   }
 
   private mixBySyllables(stWord: string, ndWord: string): string[] {
