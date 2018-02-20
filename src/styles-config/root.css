@@ -11,7 +11,7 @@ html {
   min-height: 100%;
   background-color: var(--c-root-bg);
   color: var(--c-root-txt);
-  font-family: var(--font-monospace);
+  font-family: var(--font-sansSerif);
   font-weight: 400;
   font-size: 100%;
   line-height: var(--root-lineHeight);
@@ -27,9 +27,8 @@ html {
 }
 
 body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 40rem; /* 640px @ 16px */
+  margin: 0;
+  padding: var(--s-leading);
 }
 
 /*******************************************************************************
@@ -48,11 +47,11 @@ a:visited {
 }
 
 a:hover {
-  color: var(--c-violet);
+  color: var(--c-honeyflower);
 }
 
 a:active {
-  color: var(--c-crimson);
+  color: var(--c-wildwatermelon);
 }
 
 /* selection */
@@ -60,7 +59,7 @@ a:active {
 :focus {
   outline: var(--c-root-focus) solid var(--s-global-border);
   background-color: var(--c-root-focus);
-  color: var(--c-white) !important;
+  color: var(--c-maverick) !important;
 }
 
 :focus svg {
@@ -71,9 +70,14 @@ a:active {
   border: 0;
 }
 
+::placeholder {
+  opacity: 0.5;
+  color: currentColor;
+}
+
 ::selection {
-  background-color: var(--c-violet);
-  color: var(--c-white);
+  background-color: var(--c-honeyflower);
+  color: var(--c-maverick);
 }
 
 /* disabled elements */

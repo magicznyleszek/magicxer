@@ -1,5 +1,4 @@
 interface IState {
-  beginnings: string[];
-  endings: string[];
+  words: string[];
   mixes: string[];
 }

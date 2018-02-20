@@ -4,11 +4,10 @@ variables - all global and pallete variables for project
 
 :root {
   /* colors palette */
-  --c-deep-sky-blue: hsl(195, 100%, 50%);
-  --c-crimson: hsl(348, 83%, 47%);
-  --c-violet: hsl(274, 100%, 50%);
-  --c-white: hsl(0, 0%, 100%);
-  --c-charcoal: hsl(0, 0%, 20%);
+  --c-snow: #FFFCF9;
+  --c-wildwatermelon: #FF6978;
+  --c-maverick: #D3C1D2;
+  --c-honeyflower: #502274;
 
   /* font families palette */
   --font-sansSerif: "Source Sans Pro", "Roboto", "PT Sans", "Droid Sans", "Fira Sans", "Work Sans", "Open Sans",
@@ -17,9 +16,9 @@ variables - all global and pallete variables for project
     "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", monospace;
 
   /* base */
-  --c-root-txt: var(--c-charcoal);
-  --c-root-bg: var(--c-white);
-  --c-root-focus: var(--c-violet);
+  --c-root-txt: var(--c-honeyflower);
+  --c-root-bg: var(--c-maverick);
+  --c-root-focus: var(--c-honeyflower);
 
   /* leading size for all spacing between elements to be pretty */
   --root-lineHeight: 1.5;

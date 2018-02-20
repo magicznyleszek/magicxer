@@ -20,9 +20,3 @@ export default Vue.extend({
   }
 });
 </script>
-
-<style lang="css" scoped>
-.app {
-  padding: 10px;
-}
-</style>

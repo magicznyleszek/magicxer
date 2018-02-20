@@ -1,22 +1,21 @@
 import { mixer } from "../components/mixer/mixer";
 
-const buildMixes = (beginnings: string[], endings: string[]): string[] => {
+const buildMixes = (words: string[]): string[] => {
   let finalMixes: string[] = [];
-  for (const beginning of beginnings) {
-    for (const ending of endings) {
-      finalMixes = finalMixes.concat(mixer.mixWords(beginning, ending));
-    }
-  }
+  words.forEach((word1: string, index1: number) => {
+    words.forEach((word2: string, index2: number) => {
+      // don't mix word with itself
+      if (index1 !== index2) {
+        finalMixes = finalMixes.concat(mixer.mixWords(word1, word2));
+      }
+    });
+  });
   return finalMixes;
 };
 
 export const mutations = {
-  setBeginnings(state: IState, payload: string[]): void {
-    state.beginnings = payload;
-    state.mixes = buildMixes(state.beginnings, state.endings);
-  },
-  setEndings(state: IState, payload: string[]): void {
-    state.endings = payload;
-    state.mixes = buildMixes(state.beginnings, state.endings);
+  setWords(state: IState, payload: string[]): void {
+    state.words = payload;
+    state.mixes = buildMixes(state.words);
   }
 };

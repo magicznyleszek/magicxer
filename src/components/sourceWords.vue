@@ -1,8 +1,6 @@
 <template>
   <form class="sourceWords">
-    <p>Write space-separated lists of words: </p>
-    <input class="beginnings" type="text" v-model="beginnings" placeholder="beginnings">
-    <input class="endings" type="text" v-model="endings" placeholder="endings">
+    <input class="words" type="text" v-model="words" placeholder="Space-separated list of words">
   </form>
 </template>
 
@@ -11,20 +9,12 @@ import Vue from "vue";
 export default Vue.extend({
   name: "sourceWords",
   computed: {
-    beginnings {
+    words {
       get() {
-        return this.$store.state.beginnings.join(" ");
+        return this.$store.state.words.join(" ");
       },
       set(value) {
-        return this.$store.commit("setBeginnings", value.split(" "));
-      }
-    },
-    endings {
-      get() {
-        return this.$store.state.endings.join(" ");
-      },
-      set(value) {
-        return this.$store.commit("setEndings", value.split(" "));
+        return this.$store.commit("setWords", value.split(" "));
       }
     }
   }
@@ -33,16 +23,20 @@ export default Vue.extend({
 
 <style lang="css" scoped>
 @import "../variables.css";
-.beginnings {
-  color: var(--c-crimson);
+.sourceWords {
+  margin: var(--s-leading) 0;
 }
-.endings {
-  color: var(--c-deep-sky-blue);
-}
-.beginnings, .endings {
-  border: var(--s-global-border) solid currentColor;
+.words {
+  color: var(--c-wildwatermelon);
+  background: var(--c-snow);
   border-radius: var(--s-global-br);
   padding: var(--s-leading-half);
-  margin: var(--s-leading-half);
+  width: 100%;
+  font-family: var(--font-monospace);
+}
+.words:focus {
+  color: var(--c-snow) !important;
+  background: var(--c-wildwatermelon);
+  outline: none;
 }
 </style>

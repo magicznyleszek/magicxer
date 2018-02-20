@@ -27,10 +27,12 @@ export default Vue.extend({
 <style lang="css" scoped>
 @import "../variables.css";
 .mixes {
-  color: var(--c-violet);
-  border: var(--s-global-border) solid currentColor;
+  color: var(--c-honeyflower);
+  border: var(--s-global-border) solid var(--c-honeyflower);
   border-radius: var(--s-global-br);
   padding: var(--s-leading-half);
-  margin: var(--s-leading-half);
+  font-family: var(--font-monospace);
+  width: 100%;
+  margin: var(--s-leading) 0;
 }
 </style>

@@ -1,5 +1,4 @@
 export const state: IState = {
-  beginnings: [],
-  endings: [],
+  words: [],
   mixes: []
 };
