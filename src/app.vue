@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <h1>sicx</h1>
+    <h1>magicxer</h1>
 
     <source-words></source-words>
     <mixes></mixes>
