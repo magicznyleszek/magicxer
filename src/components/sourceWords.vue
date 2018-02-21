@@ -1,6 +1,11 @@
 <template>
   <form class="sourceWords">
-    <input class="words" type="text" v-model="words" placeholder="Space-separated list of words">
+    <input
+      class="words"
+      type="text"
+      v-model="words"
+      placeholder="Space-separated list of words"
+    >
   </form>
 </template>
 
@@ -22,7 +27,6 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
-@import "../variables.css";
 .sourceWords {
   margin: var(--s-leading) 0;
 }

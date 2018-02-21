@@ -4,7 +4,9 @@
       <li v-for="mix in orderedMixes">{{ mix }}</li>
     </ul>
 
-    <p v-if="orderedMixes.length < 1">Provide words that share some letters or contain vowels :-)</p>
+    <p v-if="orderedMixes.length < 1">
+      Provide words that share some letters or contain vowels :-)
+    </p>
   </div>
 </template>
 
@@ -25,7 +27,6 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
-@import "../variables.css";
 .mixes {
   color: var(--c-honeyflower);
   border: var(--s-global-border) solid var(--c-honeyflower);
