@@ -20,11 +20,7 @@ This is a small webapp project that I created to check out some fancy new tech:
 
 ## Development
 
-Change code at `/src`.
-
-Run live server ([localhost:2038](http://localhost:2038)) with hot reloading: `npm start`.
-
-Watch tests: `npm run test-watch`.
+Change code at `/src` and run Parceljs live server ([localhost:2038](http://localhost:2038)): `npm start`. You probably want to watch tests too: `npm run test-watch`.
 
 Before commiting the changes, make sure to run `npm run build` (development website is in `/dev`, production is in `/docs`[^1]).
 
