@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <form class="sourceWords">
     <input
       class="words"
@@ -27,6 +27,7 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
+@import "../styles-config/variables.css";
 .sourceWords {
   margin: var(--s-leading) 0;
 }

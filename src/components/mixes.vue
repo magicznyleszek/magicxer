@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <div class="mixes">
     <ul class="list">
       <li v-for="mix in orderedMixes">{{ mix }}</li>
@@ -27,6 +27,7 @@ export default Vue.extend({
 </script>
 
 <style lang="css" scoped>
+@import "../styles-config/variables.css";
 .mixes {
   color: var(--c-honeyflower);
   border: var(--s-global-border) solid var(--c-honeyflower);
