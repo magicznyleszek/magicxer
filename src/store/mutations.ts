@@ -15,9 +15,9 @@ const buildMixes = (words: string[]): string[] => {
 };
 
 const logInfo = (words: string[]): void => {
-  const syllablesLog: any = {};
+  const syllablesLog = [];
   for (const word of words) {
-    syllablesLog[word] = syllabler.split(word).join("•");
+    syllablesLog.push(syllabler.split(word).join("•"));
   }
   console.debug("current syllables", syllablesLog);
 };
