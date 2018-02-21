@@ -1,10 +1,12 @@
 # magicxer
 
-Magical words mixer.
+Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.smutnyleszek.com](http://magicxer.smutnyleszek.com).
 
-One word vs list of words -- combine and try to come up with clever mixes. For every word return a list and try to guess/suggest which one is prettier/best.
+## Usage
 
-## Development
+WIP
+
+## Technicalities
 
 This is a small webapp project that I created to check out some fancy new tech:
 
@@ -16,4 +18,14 @@ This is a small webapp project that I created to check out some fancy new tech:
 * 2 spaces indentation :-D
 * .editorconfig
 
-Note: The website is being built into `docs` directory, because Github Pages allows to serve only root or `docs`.
+## Development
+
+Change code at `/src`.
+
+Run live server ([localhost:2038](http://localhost:2038)) with hot reloading: `npm start`.
+
+Watch tests: `npm run test-watch`.
+
+Before commiting the changes, make sure to run `npm run build` (development website is in `/dev`, production is in `/docs`[^1]).
+
+[^1]: We use `/docs` directory, because Github Pages allows to serve only root or `/docs`.
