@@ -1,24 +1,28 @@
 {
   "name": "magicxer",
+  "main": "./npm/index-npm.js",
   "version": "1.0.0",
   "description": "Magical words mixer",
+  "author": {
+    "name": "Leszek Pietrzak",
+    "email": "smutnyleszek@gmail.com"
+  },
+  "private": false,
+  "homepage": "https://github.com/smutnyleszek/magicxer",
+  "repository": "git+https://github.com/smutnyleszek/magicxer.git",
+  "bugs": "https://github.com/smutnyleszek/magicxer/issues",
+  "license": "CC0-1.0",
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watchAll --coverage",
     "start": "parcel -p 2038 src/index.html -d dev",
     "build": "rm -rf docs && parcel build src/index.html -d docs --public-url ./ --no-cache && npm run copy-static-files",
-    "copy-static-files": "cp CNAME favicon.png humans.txt LICENSE manifest.json favicon.ico favicon.png docs"
+    "build-npm": "rm -rf npm && parcel build src/index-npm.ts -d npm --no-cache",
+    "copy-static-files": "cp CNAME favicon.png humans.txt LICENSE manifest.json favicon.ico favicon.png docs",
+    "pre-publish": "npm test && npm run build-npm",
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smutnyleszek/magicxer.git"
-  },
-  "author": "Leszek Pietrzak",
-  "license": "CC0-1.0",
-  "bugs": {
-    "url": "https://github.com/smutnyleszek/magicxer/issues"
-  },
-  "homepage": "https://github.com/smutnyleszek/magicxer#readme",
   "devDependencies": {
     "@types/jest": "^22.1.1",
     "@types/lodash": "^4.14.101",
@@ -30,6 +34,7 @@
     "postcss": "^6.0.19",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
+    "publish-please": "^2.3.1",
     "stylelint": "^8.4.0",
     "stylelint-order": "^0.8.0",
     "ts-jest": "^22.0.3",
