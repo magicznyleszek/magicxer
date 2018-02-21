@@ -4,7 +4,7 @@
       <li v-for="mix in orderedMixes">{{ mix }}</li>
     </ul>
 
-    <p v-if="orderedMixes.length < 1">Provide words that share some letters or contain vovels :-)</p>
+    <p v-if="orderedMixes.length < 1">Provide words that share some letters or contain vowels :-)</p>
   </div>
 </template>
 
