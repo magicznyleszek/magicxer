@@ -1,0 +1,19 @@
+{
+  "name": "sicx",
+  "short_name": "sicx",
+  "description": "Sick words mixer",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#502274",
+  "background_color": "#D3C1D2",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+      "type": "image/png"
+    }
+  ],
+  "prefer_related_applications": false
+}
