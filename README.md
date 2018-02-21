@@ -4,7 +4,14 @@ Magical words mixer. Combines words from list into a list of clever mixes. You c
 
 ## Usage
 
-WIP
+```sh
+npm install magicxer --save
+```
+
+```typescript
+import { magicxer } from "magicxer";
+console.log(magicxer.mix("snow", "white"));
+```
 
 ## Technicalities
 
