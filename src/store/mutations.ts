@@ -7,7 +7,7 @@ const buildMixes = (words: string[]): string[] => {
     words.forEach((word2: string, index2: number) => {
       // don't mix word with itself or empty strings
       if (index1 !== index2 && word1.length * word2.length !== 0) {
-        finalMixes = finalMixes.concat(mixer.mixWords(word1, word2));
+        finalMixes = finalMixes.concat(mixer.mix(word1, word2));
       }
     });
   });

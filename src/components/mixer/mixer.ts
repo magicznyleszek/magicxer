@@ -3,7 +3,7 @@ import { writing } from "../syllabler/writing";
 
 class Mixer {
   /** Returns array of mixes for two given words. */
-  public mixWords(stWord: string, ndWord: string): string[] {
+  public mix(stWord: string, ndWord: string): string[] {
     let finalMixes: string[] = [];
     finalMixes = finalMixes.concat(this.mixBySyllablesJoin(stWord, ndWord));
     finalMixes = finalMixes.concat(this.mixBySyllablesWrap(stWord, ndWord));
