@@ -53,4 +53,12 @@ describe("writing", () => {
     expect(writing.isValidSyllable("t")).toBeFalsy();
     expect(writing.isValidSyllable("rsh")).toBeFalsy();
   });
+
+  it("should be able to return array of predefined prefixes", () => {
+    expect(writing.getPrefixes()).toEqual(expect.arrayContaining(["post"]));
+  });
+
+  it("should be able to return array of predefined suffixes", () => {
+    expect(writing.getSuffixes()).toEqual(expect.arrayContaining(["ing"]));
+  });
 });

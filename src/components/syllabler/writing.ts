@@ -57,36 +57,46 @@ class Writing {
     "ks",
     "ng",
     "ph",
+    "rz",
     "sh",
+    "st",
+    "sz",
     "th",
     "ts",
     "xs"
   ];
 
+  /** Returns true for vowels. */
   public isVowel(letter: string): boolean {
     return letter.length === 1 && Writing.vowels.indexOf(letter) !== -1;
   }
 
+  /** Returns true for consonants. */
   public isConsonant(letter: string): boolean {
     return letter.length === 1 && !this.isVowel(letter);
   }
 
+  /** Returns true for prefixes. */
   public isPrefix(word: string): boolean {
     return Writing.prefixes.indexOf(word) !== -1;
   }
 
+  /** Returns an array of predefined prefixes. */
   public getPrefixes(): string[] {
     return Writing.prefixes;
   }
 
+  /** Returns true for suffixes. */
   public isSuffix(word: string): boolean {
     return Writing.suffixes.indexOf(word) !== -1;
   }
 
+  /** Returns an array of predefined suffixes. */
   public getSuffixes(): string[] {
     return Writing.suffixes;
   }
 
+  /** Returns true for predefined single sound pairs. */
   public isSingleSoundPair(letterA: string, letterB: string): boolean {
     if (letterA.length !== 1 || letterB.length !== 1) {
       throw new Error("UGH! This function requires letters!");
@@ -94,6 +104,7 @@ class Writing {
     return Writing.singleSoundConsonantPairs.indexOf(letterA + letterB) !== -1;
   }
 
+  /** Returns true if word contains any vowel. */
   public hasVowels(word: string): boolean {
     for (const letter of word) {
       if (this.isVowel(letter)) {
@@ -103,6 +114,7 @@ class Writing {
     return false;
   }
 
+  /** Returns true for valid syllables (~long and with vowels). */
   public isValidSyllable(word: string): boolean {
     // "y" is sometimes a vowel, and in this particular case we can accept that
     return (

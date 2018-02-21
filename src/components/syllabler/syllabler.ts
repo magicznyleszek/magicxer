@@ -4,11 +4,12 @@
 import { writing } from "./writing";
 
 class Syllabler {
+  /** Splits a word into an ordered array of syllables. */
   public split(word: string): string[] {
     // we start with a single chunk
     let chunks: string[] = [word];
 
-    // NOTE: order of these is probably curcial
+    // NOTE: order of these is probably important and delicate
     chunks = this.splitPrefix(chunks);
     chunks = this.splitCkleLeSuffix(chunks);
     chunks = this.splitGeneralSuffix(chunks);
@@ -18,6 +19,7 @@ class Syllabler {
     return chunks;
   }
 
+  /** Splits prefix from first word. */
   private splitPrefix(chunks: string[]): string[] {
     const workWord = chunks[0];
     for (const prefix of writing.getPrefixes()) {
@@ -33,6 +35,7 @@ class Syllabler {
     return chunks;
   }
 
+  /** Splits suffix from last word. */
   private splitGeneralSuffix(chunks: string[]): string[] {
     const workWord = chunks[chunks.length - 1];
     if (workWord) {
@@ -54,6 +57,7 @@ class Syllabler {
     return chunks;
   }
 
+  /** Splits "ckle" and "le" suffixes by some simple logic. */
   private splitCkleLeSuffix(chunks: string[]): string[] {
     const workWord = chunks[chunks.length - 1];
 
@@ -79,7 +83,7 @@ class Syllabler {
     return chunks;
   }
 
-  // split 1st and 2nd consonant for multiple in row
+  /** Splits 1st and 2nd consonant for multiple in row. */
   private splitByMultipleConsonantsInRow(chunks: string[]): string[] {
     chunks.forEach((chunk: string, index: number) => {
       // skip chunks that are prefixes or suffixes
@@ -132,6 +136,7 @@ class Syllabler {
     return chunks;
   }
 
+  /** Splits words on consonants surrounded by vowels. */
   private splitBySurroundedConsonants(chunks: string[]): string[] {
     chunks.forEach((chunk: string, index: number) => {
       // skip chunks that are prefixes or suffixes
