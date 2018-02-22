@@ -1,12 +1,12 @@
 <template lang="html">
-  <form class="sourceWords">
+  <div class="sourceWords">
     <input
       class="words"
       type="text"
       v-model="words"
       placeholder="Space-separated list of words"
     >
-  </form>
+  </div>
 </template>
 
 <script lang="ts">

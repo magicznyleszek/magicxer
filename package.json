@@ -17,10 +17,10 @@
     "test": "jest",
     "test-watch": "jest --watchAll --coverage",
     "start": "parcel -p 2038 src/index.html -d dev",
-    "build": "rm -rf docs && parcel build src/index.html -d docs --public-url ./ --no-cache && npm run copy-static-files",
-    "build-for-npm": "parcel build lib/index.ts -d dist --no-cache",
+    "build-docs": "rm -rf docs && parcel build src/index.html -d docs --public-url ./ --no-cache && npm run copy-static-files",
+    "build-module": "parcel build lib/index.ts -d dist --no-cache",
     "copy-static-files": "cp CNAME favicon.png humans.txt LICENSE manifest.json favicon.ico favicon.png docs",
-    "pre-publish": "npm test && npm run build-for-npm",
+    "pre-publish": "npm test && npm run build-module",
     "publish-please": "publish-please",
     "prepublish": "publish-please guard"
   },
