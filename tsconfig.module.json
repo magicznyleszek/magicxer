@@ -2,9 +2,8 @@
   "compilerOptions": {
     "pretty": true,
     "strict": true,
-    "target": "ES5",
-    "module": "AMD",
-    "moduleResolution": "Node",
+    "target": "es5",
+    "module": "amd",
     "outFile": "dist/index.js"
   },
   "files": ["lib/index.ts"]
