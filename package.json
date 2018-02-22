@@ -1,7 +1,7 @@
 {
   "name": "magicxer",
   "main": "dist/index.js",
-  "types" : "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "version": "1.0.1",
   "description": "Magical words mixer",
   "author": {
@@ -18,7 +18,7 @@
     "test-watch": "jest --watchAll --coverage",
     "start": "parcel -p 2038 src/index.html -d dev",
     "build-docs": "rm -rf docs && parcel build src/index.html -d docs --public-url ./ --no-cache && npm run copy-static-files",
-    "build-module": "parcel build lib/index.ts -d dist --no-cache",
+    "build-module": "tsc -p tsconfig.module.json",
     "copy-static-files": "cp CNAME favicon.png humans.txt LICENSE manifest.json favicon.ico favicon.png docs",
     "pre-publish": "npm test && npm run build-module",
     "publish-please": "publish-please",
