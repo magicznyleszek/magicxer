@@ -23,6 +23,8 @@ module.exports = {
     extensions: [".ts"]
   },
   output: {
-    filename: "./dist/index.js"
+    filename: "./dist/index.js",
+    libraryTarget: "commonjs",
+    library: "magicxer"
   }
 };
