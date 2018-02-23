@@ -1,4 +1,6 @@
-import { mixer } from "./mixer";
+import { Mixer } from "./mixer";
+
+const mixer = new Mixer();
 
 describe("mixer", () => {
   it("should mix special pairs", () => {

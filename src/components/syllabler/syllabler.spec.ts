@@ -1,4 +1,6 @@
-import { syllabler } from "./syllabler";
+import { Syllabler } from "./syllabler";
+
+const syllabler = new Syllabler();
 
 const examples = [
   { in: "analogous", out: ["anal", "o", "gous"] },

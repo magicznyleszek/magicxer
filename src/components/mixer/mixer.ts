@@ -1,7 +1,10 @@
-import { syllabler } from "../syllabler/syllabler";
-import { writing } from "../syllabler/writing";
+import { Syllabler } from "../syllabler/syllabler";
+import { Writing } from "../syllabler/writing";
 
-class Mixer {
+const syllabler = new Syllabler();
+const writing = new Writing();
+
+export class Mixer {
   /** Returns array of mixes for two given words. */
   public mix(stWord: string, ndWord: string): string[] {
     let finalMixes: string[] = [];
@@ -130,5 +133,3 @@ class Mixer {
     return mixes;
   }
 }
-
-export const mixer = new Mixer();

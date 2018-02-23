@@ -1,9 +1,11 @@
 // this is designed to work with English
 // inspired by https://www.howmanysyllables.com/divideintosyllables
 
-import { writing } from "./writing";
+import { Writing } from "./writing";
 
-class Syllabler {
+const writing = new Writing();
+
+export class Syllabler {
   /** Splits a word into an ordered array of syllables. */
   public split(word: string): string[] {
     // we start with a single chunk
@@ -177,5 +179,3 @@ class Syllabler {
     return chunks;
   }
 }
-
-export const syllabler = new Syllabler();

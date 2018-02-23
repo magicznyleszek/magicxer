@@ -1,5 +1,8 @@
-import { mixer } from "../components/mixer/mixer";
-import { syllabler } from "../components/syllabler/syllabler";
+import { Mixer } from "../components/mixer/mixer";
+import { Syllabler } from "../components/syllabler/syllabler";
+
+const mixer = new Mixer();
+const syllabler = new Syllabler();
 
 const buildMixes = (words: string[]): string[] => {
   let finalMixes: string[] = [];

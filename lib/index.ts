@@ -1,3 +1,3 @@
-import { mixer } from "../src/components/mixer/mixer";
+import { Mixer } from "../src/components/mixer/mixer";
 
-export const magicxer = mixer;
+export const magicxer = new Mixer();

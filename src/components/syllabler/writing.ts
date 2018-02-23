@@ -2,7 +2,7 @@
 
 // this is designed to work with English
 
-class Writing {
+export class Writing {
   // "y" is sometimes vowel and sometimes consonant,
   // for simplicity I assume it's always the latter
   private static readonly vowels: string[] = ["a", "e", "i", "o", "u"];
@@ -122,5 +122,3 @@ class Writing {
     );
   }
 }
-
-export const writing = new Writing();

@@ -2,7 +2,7 @@
   "name": "magicxer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Magical words mixer",
   "author": {
     "name": "Leszek Pietrzak",
@@ -18,7 +18,7 @@
     "test-watch": "jest --watchAll --coverage",
     "start": "parcel -p 2038 src/index.html -d dev",
     "build-docs": "rm -rf docs && parcel build src/index.html -d docs --public-url ./ --no-cache && npm run copy-static-files",
-    "build-module": "webpack",
+    "build-module": "tsc -p tsconfig.module.json",
     "copy-static-files": "cp CNAME favicon.png humans.txt LICENSE manifest.json favicon.ico favicon.png docs",
     "pre-publish": "npm test && npm run build-module",
     "publish-please": "publish-please",
@@ -39,9 +39,7 @@
     "stylelint": "^8.4.0",
     "stylelint-order": "^0.8.0",
     "ts-jest": "^22.0.3",
-    "ts-loader": "^3.5.0",
-    "typescript": "^2.7.1",
-    "webpack": "^3.11.0"
+    "typescript": "^2.7.1"
   },
   "dependencies": {
     "vue": "^2.5.13",

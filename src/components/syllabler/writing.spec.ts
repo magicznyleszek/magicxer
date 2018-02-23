@@ -1,4 +1,6 @@
-import { writing } from "./writing";
+import { Writing } from "./writing";
+
+const writing = new Writing();
 
 describe("writing", () => {
   it("should identify vowels", () => {
