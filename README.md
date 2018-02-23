@@ -1,4 +1,6 @@
-# magicxer [![npm](https://img.shields.io/npm/v/magicxer.svg)](https://www.npmjs.com/package/magicxer)
+# magicxer
+
+[![npm](https://img.shields.io/npm/v/magicxer.svg)](https://www.npmjs.com/package/magicxer)
 [![npm](https://img.shields.io/npm/dt/magicxer.svg)](https://www.npmjs.com/package/magicxer)
  [![npm](https://img.shields.io/npm/l/magicxer.svg)](https://www.npmjs.com/package/magicxer)
 
