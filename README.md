@@ -32,8 +32,20 @@ This is a small webapp project that I created to check out some fancy new tech:
 
 ## Development
 
-Change code at `/src` and run Parceljs live server ([localhost:2038](http://localhost:2038)): `npm start`. You probably want to watch tests too: `npm run test-watch`.
+You probably want to watch tests: `npm run test-watch`.
 
-Before commiting the changes, make sure to run `npm run build` (development website is in `/dev`, production is in `/docs`[^1]).
+### Website
 
-[^1]: We use `/docs` directory, because Github Pages allows to serve only root or `/docs`.
+Change code at `src` and run Parceljs live server ([localhost:2038](http://localhost:2038)): `npm start`.
+
+### Module
+
+Change code at `lib` or `src`, run `npm run build-module` and use your local version in your other npm project.
+
+## Building
+
+Development website outcome is in `dev`, production website is in `docs`[^1] and module code is in `dist`.
+
+Before commiting the changes, make sure to run `npm run build-docs` or `npm run build-module` - depending on what part of the project you've worked on.
+
+[^1]: We use `docs` directory, because Github Pages allows to serve only root or `docs`.
