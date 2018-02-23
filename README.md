@@ -8,9 +8,14 @@ Magical words mixer. Combines words from list into a list of clever mixes. You c
 npm install magicxer --save
 ```
 
+```js
+const magicxer = require("magicxer").magicxer;
+magicxer.mix("snow", "white");
+```
+
 ```typescript
 import { magicxer } from "magicxer";
-console.log(magicxer.mix("snow", "white"));
+magicxer.mix("snow", "white");
 ```
 
 ## Technicalities
