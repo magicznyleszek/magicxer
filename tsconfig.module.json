@@ -2,10 +2,10 @@
   "compilerOptions": {
     "strict": true,
     "target": "es5",
-    "module": "amd",
+    "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
-    "outFile": "./dist/index.js"
+    "outDir": "dist"
   },
-  "files": ["./lib/index.ts"]
+  "files": ["lib/index.ts"]
 }
