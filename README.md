@@ -1,4 +1,6 @@
-# magicxer
+# magicxer [![npm](https://img.shields.io/npm/v/magicxer.svg)](https://www.npmjs.com/package/magicxer)
+[![npm](https://img.shields.io/npm/dt/magicxer.svg)](https://www.npmjs.com/package/magicxer)
+ [![npm](https://img.shields.io/npm/l/magicxer.svg)](https://www.npmjs.com/package/magicxer)
 
 Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.smutnyleszek.com](http://magicxer.smutnyleszek.com).
 
