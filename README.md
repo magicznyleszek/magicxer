@@ -6,6 +6,8 @@
 
 Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.smutnyleszek.com](http://magicxer.smutnyleszek.com).
 
+It also has some code for splitting words to syllables -- simple but imperfect solution for a surprisingly complex problem.
+
 ## Usage
 
 ```sh
@@ -14,7 +16,8 @@ npm install magicxer --save
 
 ```js
 const magicxer = require("magicxer").magicxer;
-magicxer.mix("snow", "white");
+return magicxer.mix("snow", "white");
+// ["snowte", "snite", "sne", "snowhite", "shite", "ste"]
 ```
 
 ```typescript
