@@ -2,7 +2,7 @@
   "name": "magicxer",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Magical words mixer",
   "author": {
     "name": "Leszek Pietrzak",
