@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="sourceWords">
     <input
+      tabindex="1"
+      ref="words"
       class="words"
       type="text"
       v-model="words"
@@ -22,6 +24,9 @@ export default Vue.extend({
         return this.$store.commit("setWords", value.split(" "));
       }
     }
+  },
+  mounted: function () {
+    this.$refs.words.focus();
   }
 });
 </script>
