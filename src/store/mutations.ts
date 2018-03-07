@@ -26,6 +26,16 @@ const logInfo = (words: string[]): void => {
 };
 
 export const mutations = {
+  initializeStore(state: IState): void {
+    const storeSessionCache = window.sessionStorage.getItem("magicxer");
+    if (storeSessionCache) {
+      console.debug("loading cached store…");
+      const cachedState = JSON.parse(storeSessionCache);
+      state.words = cachedState.words;
+      state.mixes = cachedState.mixes;
+      logInfo(state.words);
+    }
+  },
   setWords(state: IState, payload: string[]): void {
     state.words = payload;
     state.mixes = buildMixes(state.words);

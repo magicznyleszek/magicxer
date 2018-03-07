@@ -10,5 +10,8 @@ const myApp = new Vue({
   components: {
     app
   },
+  beforeCreate(): void {
+    store.commit("initializeStore");
+  },
   render: h => h("app")
 });
