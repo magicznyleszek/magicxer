@@ -12,9 +12,9 @@ const myStore = new Vuex.Store({
   strict: window.location.hostname === "localhost"
 });
 
-// save every store change to sessionStorage
+// save every store change to localStorage
 myStore.subscribe((mutation, newState: IState): void => {
-  window.sessionStorage.setItem("magicxer", JSON.stringify(newState));
+  window.localStorage.setItem("magicxer", JSON.stringify(newState));
 });
 
 export const store = myStore;

@@ -27,10 +27,10 @@ const logInfo = (words: string[]): void => {
 
 export const mutations = {
   initializeStore(state: IState): void {
-    const storeSessionCache = window.sessionStorage.getItem("magicxer");
-    const cachedStateData = JSON.parse(storeSessionCache || "{}");
+    const storeCache = window.localStorage.getItem("magicxer");
+    const cachedStateData = JSON.parse(storeCache || "{}");
     // only load cached data for current version
-    if (storeSessionCache && cachedStateData.version === state.version) {
+    if (storeCache && cachedStateData.version === state.version) {
       console.debug("loading cached store…");
       state.words = cachedStateData.words;
       state.mixes = cachedStateData.mixes;
