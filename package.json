@@ -41,7 +41,7 @@
     "publish-please": "^2.4.1",
     "stylelint": "^8.4.0",
     "stylelint-order": "^0.8.1",
-    "ts-jest": "^22.0.3",
+    "ts-jest": "^22.4.6",
     "typescript": "^2.7.1"
   },
   "dependencies": {
