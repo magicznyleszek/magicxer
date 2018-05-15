@@ -28,7 +28,7 @@
   "devDependencies": {
     "@types/jest": "^22.2.3",
     "@types/lodash": "^4.14.108",
-    "autoprefixer": "^7.2.6",
+    "autoprefixer": "^8.5.0",
     "jest": "^22.4.3",
     "lodash": "^4.17.10",
     "parcel-bundler": "^1.4.1",
@@ -39,7 +39,7 @@
     "prettier": "^1.12.1",
     "pretty-quick": "^1.4.1",
     "publish-please": "^2.4.1",
-    "stylelint": "^8.4.0",
+    "stylelint": "^9.2.0",
     "stylelint-order": "^0.8.1",
     "ts-jest": "^22.4.6",
     "typescript": "^2.7.1"
