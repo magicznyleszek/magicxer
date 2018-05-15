@@ -21,7 +21,7 @@
     "build-docs": "pretty-quick && rm -rf docs && parcel build src/index.html -d docs --public-url ./ --no-cache && npm run copy-static-files",
     "build-module": "pretty-quick && tsc -p tsconfig.module.json",
     "copy-static-files": "cp CNAME favicon.png humans.txt LICENSE manifest.json favicon.ico favicon.png docs",
-    "prepublishscript": "npm test && npm run build-all",
+    "prepublishscript": "npm test && npm run build-module",
     "publish-please": "publish-please",
     "prepublish": "publish-please guard"
   },
