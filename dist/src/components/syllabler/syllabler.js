@@ -1,7 +1,7 @@
 "use strict";
-// this is designed to work with English
-// inspired by https://www.howmanysyllables.com/divideintosyllables
+// NOTE: this is designed to work with English
 Object.defineProperty(exports, "__esModule", { value: true });
+// inspired by https://www.howmanysyllables.com/divideintosyllables
 var writing_1 = require("./writing");
 var writing = new writing_1.Writing();
 var Syllabler = /** @class */ (function () {

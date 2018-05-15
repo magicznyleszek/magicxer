@@ -1,7 +1,7 @@
 "use strict";
-// a set og small writing-system related helpers
+// NOTE: this is designed to work with English
 Object.defineProperty(exports, "__esModule", { value: true });
-// this is designed to work with English
+// A set of small writing-system related helpers
 var Writing = /** @class */ (function () {
     function Writing() {
     }
