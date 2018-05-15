@@ -48,6 +48,12 @@
     "vue": "^2.5.13",
     "vuex": "^3.0.1"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "npm run test"
+    }
+  },
   "jest": {
     "transform": {
       "^.+\\.ts?$": "ts-jest"
