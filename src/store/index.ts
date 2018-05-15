@@ -13,8 +13,8 @@ const myStore = new Vuex.Store({
 });
 
 // save every store change to localStorage
-myStore.subscribe((mutation, newState: IState): void => {
+myStore.subscribe((mutation: any, newState: IState): void => {
   window.localStorage.setItem("magicxer", JSON.stringify(newState));
 });
 
-export const store = myStore;
+export const store =  myStore;
