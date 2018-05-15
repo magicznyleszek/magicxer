@@ -1,5 +1,6 @@
-// A set of small writing-system related helpers.
-// NOTE: this is designed to work with English.
+// NOTE: this is designed to work with English
+
+// A set of small writing-system related helpers
 
 export class Writing {
   // "y" is sometimes vowel and sometimes consonant,

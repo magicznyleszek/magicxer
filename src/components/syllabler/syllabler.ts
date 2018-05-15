@@ -1,4 +1,5 @@
-// this is designed to work with English
+// NOTE: this is designed to work with English
+
 // inspired by https://www.howmanysyllables.com/divideintosyllables
 
 import { Writing } from "./writing";
