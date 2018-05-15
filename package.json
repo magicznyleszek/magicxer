@@ -2,7 +2,7 @@
   "name": "magicxer",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Magical words mixer",
   "author": {
     "name": "Leszek Pietrzak",
@@ -28,11 +28,11 @@
   "devDependencies": {
     "@types/jest": "^22.2.3",
     "@types/lodash": "^4.14.108",
+    "@vue/component-compiler-utils": "^1.2.1",
     "autoprefixer": "^8.5.0",
     "jest": "^22.4.3",
     "lodash": "^4.17.10",
-    "parcel-bundler": "^1.4.1",
-    "parcel-plugin-vue": "^1.5.0",
+    "parcel-bundler": "^1.8.1",
     "postcss": "^6.0.22",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
@@ -42,10 +42,12 @@
     "stylelint": "^9.2.0",
     "stylelint-order": "^0.8.1",
     "ts-jest": "^22.4.6",
-    "typescript": "^2.8.3"
+    "typescript": "^2.8.3",
+    "vue-template-compiler": "^2.5.16"
   },
   "dependencies": {
-    "vue": "^2.5.13",
+    "vue": "^2.5.16",
+    "vue-hot-reload-api": "^2.3.0",
     "vuex": "^3.0.1"
   },
   "jest": {
