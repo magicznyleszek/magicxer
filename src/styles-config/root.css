@@ -21,9 +21,15 @@ html {
 /*
 clever page scaling with root font size changes:
 https://www.smashingmagazine.com/2016/05/fluid-typography/
+calc(AZ + (B - A) * (100vw - CZ) / (D - C))
+- A: min font size
+- B: max font size
+- C: min screen size
+- D: max screen size
+- Z: unit (px, rem, etc.)
 */
 html {
-  font-size: calc(1rem + (2 - 1) * (100vw - 40rem) / (120 - 40));
+  font-size: calc(16px + (24 - 16) * (100vw - 480px) / (1920 - 480));
 }
 
 body {
