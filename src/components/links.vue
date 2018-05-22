@@ -1,8 +1,8 @@
 <template lang="html">
   <footer>
-    <a href="https://github.com/smutnyleszek/magicxer">source code</a>
+    <a href="https://github.com/magicznyleszek/magicxer">source code</a>
     &bull;
-    <a href="http://smutnyleszek.com">author</a>
+    <a href="http://magicznyleszek.xyz">author</a>
   </footer>
 </template>
 

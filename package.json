@@ -6,12 +6,12 @@
   "description": "Magical words mixer",
   "author": {
     "name": "Leszek Pietrzak",
-    "email": "smutnyleszek@gmail.com"
+    "email": "leszek@magicznyleszek.xyz"
   },
   "private": false,
-  "homepage": "https://github.com/smutnyleszek/magicxer",
-  "repository": "git+https://github.com/smutnyleszek/magicxer.git",
-  "bugs": "https://github.com/smutnyleszek/magicxer/issues",
+  "homepage": "https://github.com/magicznyleszek/magicxer",
+  "repository": "git+https://github.com/magicznyleszek/magicxer.git",
+  "bugs": "https://github.com/magicznyleszek/magicxer/issues",
   "license": "CC0-1.0",
   "scripts": {
     "test": "jest",

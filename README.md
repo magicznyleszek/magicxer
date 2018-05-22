@@ -2,9 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/magicxer.svg)](https://www.npmjs.com/package/magicxer)
 [![npm](https://img.shields.io/npm/dt/magicxer.svg)](https://www.npmjs.com/package/magicxer)
-[![npm](https://img.shields.io/npm/l/magicxer.svg)](https://github.com/smutnyleszek/magicxer/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/l/magicxer.svg)](https://github.com/magicznyleszek/magicxer/blob/master/LICENSE)
 
-Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.smutnyleszek.com](http://magicxer.smutnyleszek.com).
+Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.magicznyleszek.xyz](http://magicxer.magicznyleszek.xyz).
 
 It also has some code for splitting words to syllables -- simple but imperfect solution for a surprisingly complex problem.
 
