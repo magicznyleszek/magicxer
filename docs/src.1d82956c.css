@@ -1,13 +1,13 @@
 :root{--c-snow:#fffcf9;--c-wildwatermelon:#ff6978;--c-maverick:#d3c1d2;--c-honeyflower:#502274;--font-sansSerif:"Source Sans Pro","Roboto","PT Sans","Droid Sans","Fira Sans","Work Sans","Open Sans","Noto Sans","Hind","Dosis","Cabin","Verdana","Tahoma",sans-serif;--font-monospace:"Input","Office Code Pro","Source Code Pro","Fira Mono","Inconsolata","Monaco","Consolas","Lucida Console","Liberation Mono","DejaVu Sans Mono",monospace;--c-root-txt:var(--c-honeyflower);--c-root-bg:var(--c-maverick);--c-root-focus:var(--c-honeyflower);--root-lineHeight:1.5;--s-leading:calc(var(--root-lineHeight) * 1rem);--s-leading-half:calc(var(--s-leading) * 0.5);--s-global-br:0.125rem;--s-global-border:0.125rem}
-.sourceWords[data-v-6bbfe3]{margin:var(--s-leading) 0
+.sourceWords[data-v-ab31b8]{margin:var(--s-leading) 0
 }
-.words[data-v-6bbfe3]{color:var(--c-wildwatermelon);background:var(--c-snow);border-radius:var(--s-global-br);padding:var(--s-leading-half);width:100%;font-family:var(--font-monospace)
+.words[data-v-ab31b8]{color:var(--c-wildwatermelon);background:var(--c-snow);border-radius:var(--s-global-br);padding:var(--s-leading-half);width:100%;font-family:var(--font-monospace)
 }
-.words[data-v-6bbfe3]:focus{color:var(--c-snow)!important;background:var(--c-wildwatermelon);outline:none
+.words[data-v-ab31b8]:focus{color:var(--c-snow)!important;background:var(--c-wildwatermelon);outline:none
 }
-.mixes[data-v-933cb5]{color:var(--c-honeyflower);border:var(--s-global-border) solid var(--c-honeyflower);border-radius:var(--s-global-br);padding:var(--s-leading-half);font-family:var(--font-monospace);width:100%;margin:var(--s-leading) 0
+.mixes[data-v-0fe14e]{color:var(--c-honeyflower);border:var(--s-global-border) solid var(--c-honeyflower);border-radius:var(--s-global-br);padding:var(--s-leading-half);font-family:var(--font-monospace);width:100%;margin:var(--s-leading) 0
 }
-footer[data-v-2cb71a]{font-size:50%
+footer[data-v-15558d]{font-size:50%
 }
-.logo[data-v-32b5f7]{width:4.1875rem;height:5.1875rem
+.logo[data-v-3c43c6]{width:4.1875rem;height:5.1875rem
 }
