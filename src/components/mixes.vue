@@ -17,7 +17,7 @@ import uniq from "lodash/uniq";
 export default Vue.extend({
   name: "mixes",
   computed: {
-    orderedMixes {
+    orderedMixes: {
       get() {
         return orderBy(uniq(this.$store.state.mixes));
       }

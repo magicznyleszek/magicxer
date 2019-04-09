@@ -53,6 +53,6 @@ Change code at `lib` or `src`, run `npm run build-module` and use your local ver
 
 Development website outcome is in `dev`, production website is in `docs`[^1] and module code is in `dist`.
 
-Before commiting the changes, make sure to run `npm run build-docs` or `npm run build-module` - depending on what part of the project you've worked on.
+Before commiting the changes, make sure to run `npm run build-website` or `npm run build-module` - depending on what part of the project you've worked on.
 
 [^1]: We use `docs` directory, because Github Pages allows to serve only root or `docs`.

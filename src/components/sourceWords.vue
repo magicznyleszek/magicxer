@@ -7,7 +7,7 @@
       type="text"
       v-model="words"
       placeholder="Space-separated list of words"
-    >
+    />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import Vue from "vue";
 export default Vue.extend({
   name: "sourceWords",
   computed: {
-    words {
+    words: {
       get() {
         return this.$store.state.words.join(" ");
       },
@@ -25,7 +25,7 @@ export default Vue.extend({
       }
     }
   },
-  mounted: function () {
+  mounted: function() {
     this.$refs.words.focus();
   }
 });
