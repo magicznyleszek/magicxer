@@ -1,4 +1,4 @@
 {
   "modules": false,
-  "plugins": ["autoprefixer", "postcss-cssnext"]
+  "plugins": ["postcss-cssnext"]
 }
