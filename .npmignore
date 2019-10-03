@@ -5,6 +5,7 @@
 .publishrc
 .stylelintrc.json
 CNAME
+coverage
 dev
 dist/src
 docs
