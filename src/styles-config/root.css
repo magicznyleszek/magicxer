@@ -29,7 +29,7 @@ calc(AZ + (B - A) * (100vw - CZ) / (D - C))
 - Z: unit (px, rem, etc.)
 */
 html {
-  font-size: calc(16px + (24 - 16) * (100vw - 480px) / (1920 - 480));
+  font-size: calc(1rem + (1.5 - 1) * (100vw - 30rem) / (120 - 30));
 }
 
 body {
@@ -65,7 +65,7 @@ a:active {
 :focus {
   outline: var(--c-root-focus) solid var(--s-global-border);
   background-color: var(--c-root-focus);
-  color: var(--c-maverick) !important;
+  color: var(--c-maverick);
 }
 
 :focus svg {

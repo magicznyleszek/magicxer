@@ -4,16 +4,18 @@ variables - all global and pallete variables for project
 
 :root {
   /* colors palette */
-  --c-snow: #FFFCF9;
-  --c-wildwatermelon: #FF6978;
-  --c-maverick: #D3C1D2;
-  --c-honeyflower: #502274;
+  --c-snow: hsl(30, 100%, 99%);
+  --c-wildwatermelon: hsl(354, 100%, 70%);
+  --c-maverick: hsl(303, 16%, 78%);
+  --c-honeyflower: hsl(273, 54%, 29%);
 
   /* font families palette */
-  --font-sansSerif: "Source Sans Pro", "Roboto", "PT Sans", "Droid Sans", "Fira Sans", "Work Sans", "Open Sans",
-    "Noto Sans", "Hind", "Dosis", "Cabin", "Verdana", "Tahoma", sans-serif;
-  --font-monospace: "Input", "Office Code Pro", "Source Code Pro", "Fira Mono", "Inconsolata", "Monaco", "Consolas",
-    "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", monospace;
+  --font-sansSerif: "Source Sans Pro", "Roboto", "PT Sans", "Droid Sans",
+    "Fira Sans", "Work Sans", "Open Sans", "Noto Sans", "Hind", "Dosis", "Cabin",
+    "Verdana", "Tahoma", sans-serif;
+  --font-monospace: "Input", "Office Code Pro", "Source Code Pro", "Fira Mono",
+    "Inconsolata", "Monaco", "Consolas", "Lucida Console", "Liberation Mono",
+    "DejaVu Sans Mono", monospace;
 
   /* base */
   --c-root-txt: var(--c-honeyflower);

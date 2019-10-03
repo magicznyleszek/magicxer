@@ -65,10 +65,7 @@
     "value-keyword-case": ["lower", { "severity": "warning" }],
     "value-no-vendor-prefix": [true, { "severity": "warning" }],
 
-    "value-list-comma-newline-after": [
-      "always-multi-line",
-      { "severity": "warning" }
-    ],
+    "value-list-comma-newline-after": null,
     "value-list-comma-newline-before": [
       "never-multi-line",
       { "severity": "warning" }

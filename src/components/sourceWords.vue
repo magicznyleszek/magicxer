@@ -45,7 +45,7 @@ export default Vue.extend({
   font-family: var(--font-monospace);
 }
 .words:focus {
-  color: var(--c-snow) !important;
+  color: var(--c-snow);
   background: var(--c-wildwatermelon);
   outline: none;
 }
