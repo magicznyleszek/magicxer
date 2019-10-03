@@ -68,17 +68,17 @@ export class Writing {
 
   /** Returns true for vowels. */
   public isVowel(letter: string): boolean {
-    return letter.length === 1 && Writing.vowels.indexOf(letter) !== -1;
+    return letter.length === 1 && Writing.vowels.includes(letter);
   }
 
   /** Returns true for consonants. */
   public isConsonant(letter: string): boolean {
-    return letter.length === 1 && !this.isVowel(letter);
+    return letter.length === 1 && !Writing.vowels.includes(letter);
   }
 
   /** Returns true for prefixes. */
   public isPrefix(word: string): boolean {
-    return Writing.prefixes.indexOf(word) !== -1;
+    return Writing.prefixes.includes(word);
   }
 
   /** Returns an array of predefined prefixes. */
@@ -101,7 +101,7 @@ export class Writing {
     if (letterA.length !== 1 || letterB.length !== 1) {
       throw new Error("UGH! This function requires letters!");
     }
-    return Writing.singleSoundConsonantPairs.indexOf(letterA + letterB) !== -1;
+    return Writing.singleSoundConsonantPairs.includes(letterA + letterB);
   }
 
   /** Returns true if word contains any vowel. */
@@ -117,8 +117,6 @@ export class Writing {
   /** Returns true for valid syllables (~long and with vowels). */
   public isValidSyllable(word: string): boolean {
     // "y" is sometimes a vowel, and in this particular case we can accept that
-    return (
-      word.length > 1 && (this.hasVowels(word) || word.indexOf("y") !== -1)
-    );
+    return word.length > 1 && (this.hasVowels(word) || word.includes("y"));
   }
 }

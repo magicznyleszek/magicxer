@@ -44,7 +44,7 @@ export class Syllabler {
     if (workWord) {
       for (const suffix of writing.getSuffixes()) {
         if (
-          workWord.indexOf(suffix) !== -1 &&
+          workWord.includes(suffix) &&
           // check it is the end of string
           workWord.indexOf(suffix) === workWord.length - suffix.length &&
           // check if whole word is not suffix already
