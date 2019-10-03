@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import orderBy from "lodash/orderby";
-import uniq from "lodash/uniq";
+import orderBy from "lodash.orderby";
+import uniq from "lodash.uniq";
 export default Vue.extend({
   name: "mixes",
   computed: {
