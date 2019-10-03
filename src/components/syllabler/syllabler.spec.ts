@@ -35,7 +35,7 @@ const examples = [
 
 describe("syllabler", () => {
   describe("split method", () => {
-    examples.forEach(example => {
+    examples.forEach((example: IExample) => {
       it(`should separate uncommon word "${example.in}"`, () => {
         expect(syllabler.split(example.in)).toEqual(example.out);
       });

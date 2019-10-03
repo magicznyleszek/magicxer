@@ -5,6 +5,7 @@
 export class Writing {
   // "y" is sometimes vowel and sometimes consonant,
   // for simplicity I assume it's always the latter
+  // (except for in `isValidSyllable`)
   private static readonly vowels: string[] = ["a", "e", "i", "o", "u"];
   private static readonly prefixes: string[] = [
     "ab",
