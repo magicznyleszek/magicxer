@@ -26,28 +26,27 @@
     "prepublish": "publish-please guard"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.11",
-    "@types/lodash": "^4.14.123",
-    "@vue/component-compiler-utils": "^2.6.0",
-    "jest": "^24.7.1",
-    "lodash": "^4.17.11",
+    "@types/jest": "^24.0.18",
+    "@types/lodash": "^4.14.141",
+    "@vue/component-compiler-utils": "^3.0.0",
+    "jest": "^24.9.0",
+    "lodash": "^4.17.15",
     "parcel-bundler": "^1.12.3",
-    "postcss": "^7.0.14",
+    "postcss": "^7.0.18",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^12.0.1",
-    "prettier": "^1.16.4",
-    "pretty-quick": "^1.10.0",
-    "publish-please": "^5.4.3",
-    "stylelint": "^9.10.1",
-    "stylelint-order": "^2.2.1",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.4.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "publish-please": "^5.5.1",
+    "stylelint": "^11.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
     "vue": "^2.6.10",
-    "vue-hot-reload-api": "^2.3.3",
-    "vuex": "^3.1.0"
+    "vue-hot-reload-api": "^2.3.4",
+    "vuex": "^3.1.1"
   },
   "jest": {
     "transform": {
