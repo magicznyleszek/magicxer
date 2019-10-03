@@ -30,8 +30,6 @@
     "@types/lodash": "^4.14.141",
     "@vue/component-compiler-utils": "^3.0.0",
     "jest": "^24.9.0",
-    "lodash.orderby": "^4.6.0",
-    "lodash.uniq": "^4.5.0",
     "parcel-bundler": "^1.12.3",
     "postcss": "^7.0.18",
     "postcss-cssnext": "^3.1.0",
@@ -42,11 +40,13 @@
     "stylelint": "^11.0.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3",
+    "vue-hot-reload-api": "^2.3.4",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
+    "lodash.orderby": "^4.6.0",
+    "lodash.uniq": "^4.5.0",
     "vue": "^2.6.10",
-    "vue-hot-reload-api": "^2.3.4",
     "vuex": "^3.1.1"
   },
   "jest": {
