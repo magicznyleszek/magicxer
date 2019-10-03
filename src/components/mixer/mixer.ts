@@ -43,9 +43,7 @@ export class Mixer {
     const ndSyllables = syllabler.split(ndWord);
 
     for (let stIndex = 0; stIndex < stSyllables.length; stIndex++) {
-      const stSyllable = stSyllables[stIndex];
       for (let ndIndex = 0; ndIndex < ndSyllables.length; ndIndex++) {
-        const ndSyllable = ndSyllables[ndIndex];
         mixes.push(
           [
             stSyllables.slice(0, stIndex + 1).join(""),
@@ -109,9 +107,12 @@ export class Mixer {
           stLetter === ndLetter ||
           (writing.isVowel(stLetter) && writing.isVowel(ndLetter))
         ) {
-          mixes.push(
-            stWord.slice(0, stIndex) + ndWord.slice(ndIndex, ndWord.length)
-          );
+          const stPart = stWord.slice(0, stIndex);
+          const ndPart = ndWord.slice(ndIndex, ndWord.length);
+
+          if (stPart.length > 0 && ndPart.length > 0) {
+            mixes.push(stPart + ndPart);
+          }
         }
       }
     }
@@ -122,9 +123,7 @@ export class Mixer {
   private mixByCoolPairs(stWord: string, ndWord: string): string[] {
     const mixes = [];
     for (let stIndex = 0; stIndex < stWord.length; stIndex++) {
-      const stLetter = stWord[stIndex];
       for (let ndIndex = 0; ndIndex < ndWord.length; ndIndex++) {
-        const ndLetter = ndWord[ndIndex];
         if (writing.isSingleSoundPair(stWord[stIndex], ndWord[ndIndex])) {
           mixes.push(stWord.slice(0, stIndex + 1) + ndWord.slice(ndIndex));
         }

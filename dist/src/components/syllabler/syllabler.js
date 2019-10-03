@@ -38,7 +38,7 @@ var Syllabler = /** @class */ (function () {
         if (workWord) {
             for (var _i = 0, _a = writing.getSuffixes(); _i < _a.length; _i++) {
                 var suffix = _a[_i];
-                if (workWord.indexOf(suffix) !== -1 &&
+                if (workWord.includes(suffix) &&
                     // check it is the end of string
                     workWord.indexOf(suffix) === workWord.length - suffix.length &&
                     // check if whole word is not suffix already

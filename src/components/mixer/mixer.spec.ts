@@ -41,4 +41,10 @@ describe("mixer", () => {
       expect.arrayContaining(["snowwhite"])
     );
   });
+
+  it("should not contain words made out of only one of words", () => {
+    expect(mixer.mix("error", "human")).not.toEqual(
+      expect.arrayContaining(["uman"])
+    );
+  });
 });

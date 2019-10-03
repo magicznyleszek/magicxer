@@ -41,9 +41,7 @@ var Mixer = /** @class */ (function () {
         var stSyllables = syllabler.split(stWord);
         var ndSyllables = syllabler.split(ndWord);
         for (var stIndex = 0; stIndex < stSyllables.length; stIndex++) {
-            var stSyllable = stSyllables[stIndex];
             for (var ndIndex = 0; ndIndex < ndSyllables.length; ndIndex++) {
-                var ndSyllable = ndSyllables[ndIndex];
                 mixes.push([
                     stSyllables.slice(0, stIndex + 1).join(""),
                     ndSyllables.slice(ndIndex).join("")
@@ -94,7 +92,11 @@ var Mixer = /** @class */ (function () {
                 var ndLetter = ndWord[ndIndex];
                 if (stLetter === ndLetter ||
                     (writing.isVowel(stLetter) && writing.isVowel(ndLetter))) {
-                    mixes.push(stWord.slice(0, stIndex) + ndWord.slice(ndIndex, ndWord.length));
+                    var stPart = stWord.slice(0, stIndex);
+                    var ndPart = ndWord.slice(ndIndex, ndWord.length);
+                    if (stPart.length > 0 && ndPart.length > 0) {
+                        mixes.push(stPart + ndPart);
+                    }
                 }
             }
         }
@@ -104,9 +106,7 @@ var Mixer = /** @class */ (function () {
     Mixer.prototype.mixByCoolPairs = function (stWord, ndWord) {
         var mixes = [];
         for (var stIndex = 0; stIndex < stWord.length; stIndex++) {
-            var stLetter = stWord[stIndex];
             for (var ndIndex = 0; ndIndex < ndWord.length; ndIndex++) {
-                var ndLetter = ndWord[ndIndex];
                 if (writing.isSingleSoundPair(stWord[stIndex], ndWord[ndIndex])) {
                     mixes.push(stWord.slice(0, stIndex + 1) + ndWord.slice(ndIndex));
                 }

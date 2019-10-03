@@ -1,8 +1,6 @@
 import { Mixer } from "../components/mixer/mixer";
-import { Syllabler } from "../components/syllabler/syllabler";
 
 const mixer = new Mixer();
-const syllabler = new Syllabler();
 
 const buildMixes = (words: string[]): string[] => {
   let finalMixes: string[] = [];
@@ -15,14 +13,6 @@ const buildMixes = (words: string[]): string[] => {
     });
   });
   return finalMixes;
-};
-
-const logInfo = (words: string[]): void => {
-  const syllablesLog = [];
-  for (const word of words) {
-    syllablesLog.push(syllabler.split(word).join("•"));
-  }
-  console.debug("current syllables", syllablesLog);
 };
 
 export const mutations = {
@@ -39,6 +29,5 @@ export const mutations = {
   setWords(state: IState, payload: string[]): void {
     state.words = payload;
     state.mixes = buildMixes(state.words);
-    logInfo(state.words);
   }
 };
