@@ -53,6 +53,7 @@ var Writing = /** @class */ (function () {
     };
     // "y" is sometimes vowel and sometimes consonant,
     // for simplicity I assume it's always the latter
+    // (except for in `isValidSyllable`)
     Writing.vowels = ["a", "e", "i", "o", "u"];
     Writing.prefixes = [
         "ab",

@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/dt/magicxer.svg)](https://www.npmjs.com/package/magicxer)
 [![npm](https://img.shields.io/npm/l/magicxer.svg)](https://github.com/magicznyleszek/magicxer/blob/master/LICENSE)
 
-Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.magicznyleszek.xyz](http://magicxer.magicznyleszek.xyz).
+Magical words mixer. Combines words from list into a list of clever mixes. You can check it out live at [magicxer.magicznyleszek.xyz](https://magicxer.magicznyleszek.xyz).
 
 It also has some code for splitting words to syllables -- simple but imperfect solution for a surprisingly complex problem.
 
@@ -29,13 +29,13 @@ magicxer.mix("snow", "white");
 
 This is a small webapp project that I created to check out some fancy new tech:
 
-* Parcel
-* Vue.js
-* Jest
-* TypeScript
-* Prettier
-* 2 spaces indentation :-D
-* .editorconfig
+- Parcel
+- Vue.js
+- Jest
+- TypeScript
+- Prettier
+- 2 spaces indentation :-D
+- .editorconfig
 
 ## Development
 
